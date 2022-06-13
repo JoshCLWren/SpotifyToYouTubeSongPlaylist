@@ -20,7 +20,9 @@ def __main__():
     else:
         with open("client_codes_Spotify.json", "w") as f:
             json.dump(client_details, f)
+    import pdb
 
+    pdb.set_trace()
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
     user = User()

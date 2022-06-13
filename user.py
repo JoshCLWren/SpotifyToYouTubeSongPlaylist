@@ -88,7 +88,7 @@ class User:
                 ):
                     self.playlists = playlists
                     self.spotify_playlist_ids = [
-                        playlist["item"]["id"] for playlist in self.playlists["items"]
+                        playlist["id"] for playlist in self.playlists["playlists"]
                     ]
 
         else:
