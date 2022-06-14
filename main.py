@@ -5,24 +5,15 @@ from playlist import Playlist
 from user import User
 from youtube_playlist import YoutubePlaylists
 
-client_details = {
-    "client_id": "./client_secret_YouTube.json",
-    "client_secret": os.getenv("client_secret", None),
-}
-
 
 def __main__():
     """Main function"""
 
-    if os.path.exists("./client_secret_YouTube.json"):
-        with open("./client_secret_YouTube.json", "r") as f:
-            client_details = json.load(f)
-    else:
-        with open("client_codes_Spotify.json", "w") as f:
-            json.dump(client_details, f)
-    import pdb
+    if not os.path.exists("./song_cache"):
+        os.mkdir("./song_cache")
+    if not os.path.exists("./playlist_cache"):
+        os.mkdir("./playlist_cache")
 
-    pdb.set_trace()
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
     user = User()
@@ -36,8 +27,11 @@ def __main__():
             youtube=user.youtube,
             youtube_playlists=youtube_playlists,
         )
-
-        playlist.place_songs_in_playlist()
+        try:
+            playlist.place_songs_in_playlist()
+        except Exception as e:
+            print(e)
+            continue
 
 
 if __name__ == "__main__":

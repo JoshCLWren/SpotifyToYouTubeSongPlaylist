@@ -1,18 +1,20 @@
 import time
+import logging
+
+logging.basicConfig(filename="example.log", level=logging.DEBUG)
 
 
-def prevent_429(func, time_to_wait=1, **kwargs):
+def prevent_429(func, **kwargs):
     """Handles outside requests and waits if there's an error"""
     try:
-        time.sleep(time_to_wait)
         return func(**kwargs)
-
     except Exception as e:
-        while True:
-            print(e)
-            print(f"Error in {func.__name__}")
-            time_to_wait = time_to_wait * 2
-            print(f"Sleeping for {time_to_wait} seconds")
-            time.sleep(time_to_wait)
 
-            return prevent_429(func, time_to_wait, **kwargs)
+        print(e)
+        print(f"Error in {func.__name__}")
+
+        logging.warning(
+            f"{func.__name__} failed with {e} with this request body: {kwargs}",
+            exc_info=True,
+        )
+        return None

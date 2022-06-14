@@ -19,13 +19,10 @@ class User:
         """initialize and authenticate with Youtube"""
         # Get credentials and create an API client
         # check if the cache is recent enough to use
-        refresh_token = None
+
         if os.path.exists("youtube_auth_cache.json"):
             with open("youtube_auth_cache.json") as f:
                 cache = json.load(f)
-                if (arrow.get(cache["last_updated"]) - arrow.now()).days < 7:
-
-                    refresh_token = cache["refresh_token"]
 
         port = os.environ.get("PORT", 8080)
         flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
@@ -59,7 +56,6 @@ class User:
         """initialize User Info"""
         self.auth_status = False
         self.scopes = ["https://www.googleapis.com/auth/youtube.force-ssl"]
-
         self.api_service_name = "youtube"
         self.api_version = "v3"
         self.client_secrets_file = "client_secret_YouTube.json"
@@ -67,6 +63,7 @@ class User:
         self.spotify_json = spotify_json
         with open("client_codes_Spotify.json") as f:
             client_codes = json.load(f)
+        import pdb
 
         self.app_token = prevent_429(
             func=request_client_token,
@@ -74,7 +71,7 @@ class User:
             client_secret=str(client_codes["client_secret"]),
         )
         self.spotify = Spotify(self.app_token)
-        self.youtube = self.auth_youtube()
+        self.youtube = prevent_429(func=self.auth_youtube)
         if os.path.exists("spotify_playlist_cache.json"):
             with open("spotify_playlist_cache.json") as f:
                 try:

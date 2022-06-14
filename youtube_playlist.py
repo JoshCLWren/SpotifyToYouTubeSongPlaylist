@@ -19,12 +19,14 @@ class YoutubePlaylists:
 
     def get_youtube_playlists_from_cache(self):
         """Gets the youtube playlists from the cache"""
+        import pdb
+
         if not os.path.exists("youtube_playlists.json"):
             return None
         try:
             with open("youtube_playlists.json") as f:
                 youtube_playlist_cache = json.load(f)
-                if youtube_playlist_cache["playlist_count"] > 0:
+                if youtube_playlist_cache["playlist_count"] == 0:
                     return None
                 return youtube_playlist_cache
         except json.JSONDecodeError:
@@ -35,20 +37,19 @@ class YoutubePlaylists:
 
         # try to get the playlists from the cache
         youtube_playlists = self.get_youtube_playlists_from_cache()
-        time_since_cached = (
-            arrow.get(youtube_playlists.get("last_updated")) - arrow.now()
-        )
+
         if (
             youtube_playlists is not None
             and len(youtube_playlists) > 0
             and youtube_playlists["playlist_count"] > 0
         ):
+
             return (
                 youtube_playlists,
-                [playlist["id"] for playlist in youtube_playlists],
-                [playlist["name"] for playlist in youtube_playlists],
+                [value for _, value in youtube_playlists.items()][:-2],
+                [playlist for playlist in youtube_playlists][:-2],
             )
-        if time_since_cached.days > 1 or youtube_playlists["playlist_count"] == 0:
+        if youtube_playlists["playlist_count"] == 0:
             youtube_playlists, _ids, _names = self._get_current_youtube()
             return (
                 youtube_playlists,
@@ -60,14 +61,18 @@ class YoutubePlaylists:
         names = []
         ids = []
         next_page = True
-        page = 1
+        page = None
         while next_page:
-            request = self.youtube.playlists().list(
-                part="snippet", maxResults=50, mine=True, pageToken=page
+            request = prevent_429(
+                func=self.youtube.playlists().list,
+                part="snippet",
+                maxResults=50,
+                mine=True,
+                pageToken=page,
             )
 
             response = prevent_429(func=request.execute)
-            if response["pageInfo"] > 50:
+            if response["pageInfo"]["totalResults"] > 50:
                 next_page = True
                 page += 1
             else:
@@ -88,6 +93,7 @@ class YoutubePlaylists:
 
     def create(self, name):
         """Creates a new Youtube playlist"""
+
         if name in self.names:
             print(f"Playlist {name} already exists")
             return self.as_dict[name]
@@ -96,13 +102,13 @@ class YoutubePlaylists:
             part="snippet,status",
             body={
                 "snippet": {
-                    "title": name.title().replace(" ", "-"),
+                    "title": name.title(),
                 },
                 "status": {"privacyStatus": "public"},
             },
         )
         try:
-            response = request.execute()
+            response = prevent_429(func=request.execute)
             self.last_time_created = arrow.now().isoformat()
             return response.get("id")
         except HttpError:

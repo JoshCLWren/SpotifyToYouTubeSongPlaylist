@@ -1,4 +1,8 @@
 import contextlib
+import os
+import json
+import arrow
+from http_requests import prevent_429
 
 
 class Song:
@@ -26,6 +30,8 @@ class Song:
         self.full_name = f"{self.track_name} - {self.artist_name}"
         self.video_id = None
         self.album_name = spotify_meta_data.track.album.name
+        self.album_image = spotify_meta_data.track.album.images[0].url
+        self.album_release_date = spotify_meta_data.track.album.release_date
 
     def get_songs_spotify(self):
         """Gets the songs from a spotify playlist"""
@@ -66,13 +72,49 @@ class Song:
     # Searches the name of the song by the artist and get the first video on the lists id
     def get_song_youtube(self):
         """Gets the song from youtube"""
-        request = self.youtube.search().list(
-            part="snippet", maxResults=1, q=self.full_name
+        request = prevent_429(
+            func=self.youtube.search().list,
+            part="snippet",
+            maxResults=1,
+            q=self.full_name,
         )
-        response = request.execute()
+        response = prevent_429(func=request.execute)
 
         response = response.get("items")
         response = response[0]
         response = response.get("id")
         self.video_id = response.get("videoId")
         return self.video_id
+
+    def cache_song(self):
+        """Caches the song"""
+        song_to_cache = {
+            "artist_name": self.artist_name,
+            "track_name": self.track_name,
+            "video_id": self.video_id,
+            "album_name": self.album_name,
+            "album_image": self.album_image,
+            "album_release_date": self.album_release_date,
+            "spotify_playlist_id": self.spotify_playlist_id,
+            "playlist_id_youtube": self.playlist_id_youtube,
+            "youtube_url": f"https://www.youtube.com/watch?v={self.video_id}",
+            "last_updated": arrow.now().isoformat(),
+        }
+        if not os.path.exists(f"./song_cache/{self.artist_name}"):
+            os.mkdir(f"./song_cache/{self.artist_name}")
+        if not os.path.exists(f"/song_cache/{self.artist_name}/{self.track_name}"):
+            os.mkdir(f"./song_cache/{self.artist_name}/{self.track_name}.json")
+        else:
+            # read cache and check if song is already in cache
+            with open(
+                f"./song_cache/{self.artist_name}/{self.track_name}.json", "r"
+            ) as f:
+                cache = json.load(f)
+                if cache["video_id"] == self.video_id:
+                    print(f"{self.full_name} is already in cache")
+                    return cache
+
+        with open(f"./song_cache/{self.artist_name}/{self.track_name}.json", "w") as f:
+
+            json.dump(song_to_cache, f)
+            return song_to_cache

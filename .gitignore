@@ -1,2 +1,5 @@
 *json
 .envrc
+/__pycache__
+/song_cache
+/playlist_cache
