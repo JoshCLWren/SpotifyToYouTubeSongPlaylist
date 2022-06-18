@@ -10,10 +10,10 @@ from http_requests import handle_request
 
 def get_youtube_playlists_from_cache():
     """Gets the YouTube playlists from the cache"""
-    if not os.path.exists("youtube_playlists.json"):
+    if not os.path.exists("youtube_playlists_v1.json"):
         return None
     try:
-        with open("youtube_playlists.json") as f:
+        with open("youtube_playlists_v1.json") as f:
             youtube_playlist_cache = json.load(f)
             if youtube_playlist_cache["playlist_count"] == 0:
                 return {"playlist_count": 0}
@@ -98,7 +98,7 @@ class YoutubePlaylists:
         for name, _id in names, ids:
             youtube_playlist_dict[name] = {"id": _id, "name": name, "tracks": [], "tracks_count": 0, "last_updated": arrow.now().isoformat()}
             # save the playlist names and ids to a json file
-            with open("youtube_playlists.json", "w") as f:
+            with open("youtube_playlists_v1.json", "w") as f:
                 json.dump(youtube_playlist_dict, f)
         return youtube_playlist_dict, ids, names
 
@@ -130,14 +130,14 @@ class YoutubePlaylists:
         youtube_quota.spend(1)
         self.as_dict[name] = {"id": response["id"], "name": name, "tracks": [], "tracks_count": 0, "last_updated": arrow.now().isoformat()}
         youtube_quota.log_success(response, self.as_dict[name])
-        with open("youtube_playlists.json", "r") as f:
+        with open("youtube_playlists_v1.json", "r") as f:
             cache = json.load(f)
         if cache:
             cache["playlist_count"] += 1
             cache[name] = {"id": response["id"], "name": name, "tracks": [], "tracks_count": 0, "last_updated": arrow.now().isoformat()}
-            with open("youtube_playlists.json", "w") as f:
+            with open("youtube_playlists_v1.json", "w") as f:
                 json.dump(cache, f)
         else:
-            with open("youtube_playlists.json", "w") as f:
+            with open("youtube_playlists_v1.json", "w") as f:
                 json.dump({"last_modified": arrow.now().isoformat(), "playlist_count": 1, name: {"id": response["id"], "name": name, "tracks": [], "tracks_count": 0, "last_updated": arrow.now().isoformat()}}, f)
         return self.as_dict[name]

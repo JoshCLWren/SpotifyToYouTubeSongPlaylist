@@ -19,14 +19,13 @@ def __main__():
     user = SpotifySession()
 
     youtube_playlists = YoutubePlaylists(youtube_session=None)
-    youtube_quota = Quota
+    youtube_quota = Quota()
     quota_remaining = youtube_quota.check()
     print(f"Quota remaining: {quota_remaining}")
     if quota_remaining == 0:
         print("Quota is 0. Exiting")
         return
-    youtube_auth_session = YouTubeAuthSession
-    youtube_auth_session.new()
+    youtube_auth_session = YouTubeAuthSession()
     for playlist_count, spotify_playlist_id in enumerate(user.spotify_playlist_ids, start=1):
         print(f"Processing playlist {playlist_count} of {len(user.spotify_playlist_ids)}")
         playlist = Playlist(

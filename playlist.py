@@ -47,8 +47,8 @@ class Playlist:
     def _try_youtube_cache(title):
         """Tries to get the playlist from the cache"""
         # import pdb; pdb.set_trace()
-        if os.path.exists("./youtube_playlists.json"):
-            with open("./youtube_playlists.json", "r") as f:
+        if os.path.exists("youtube_playlists_v1.json"):
+            with open("youtube_playlists_v1.json", "r") as f:
                 cache = json.load(f)
                 for playlist, _id in cache.items():
                     if playlist == title:
@@ -101,7 +101,7 @@ class Playlist:
                     print("Youtube quota exceeded, can't add song to playlist")
                     return
                 # check if song is already in the playlist
-                if not self.is_song_in_youtube_playlist(tune, youtube_quota):
+                if not self.is_song_in_youtube_playlist(tune):
                     request = handle_request(
                         func=self.youtube.playlistItems().insert,
                         part="snippet",
@@ -158,7 +158,7 @@ class Playlist:
             print(f"{self.name} cached")
             return playlist_to_cache
 
-    def create_youtube_playlist(self, name, quota):
+    def create_youtube_playlist(self, title, quota):
         """Creates a new playlist in youtube"""
         playlist = None
         if quota.remaining > 0:
@@ -167,7 +167,7 @@ class Playlist:
                 part="snippet,status",
                 body={
                     "snippet": {
-                        "title": name,
+                        "title": title,
                         "description": "Created by Spotify to Youtube",
                     },
                     "status": {"privacyStatus": "public"},
@@ -185,12 +185,11 @@ class Playlist:
         try:
             self.youtube_id = playlist["id"]
             self._update_youtube_cache()
-            print(f"{name} created in youtube")
+            print(f"{title} created in youtube")
             return playlist["id"]
         except TypeError:
             return self._log_failed_playlist()
 
-    # TODO Rename this here and in `create_youtube_playlist`
     def _spend_quota(self, quota, playlist):
         quota.spend(1)
         quota.log_success(playlist, self.name)
@@ -206,45 +205,26 @@ class Playlist:
 
     def _update_youtube_cache(self):
         """Updates the cache with the new playlist"""
-        if not os.path.exists("./youtube_playlists.json"):
-            with open("./youtube_playlists.json", "w") as f:
+        if not os.path.exists("youtube_playlists_v1.json"):
+            with open("youtube_playlists_v1.json", "w") as f:
                 json.dump({}, f)
-        with open("./youtube_playlists.json", "r") as f:
+        with open("youtube_playlists_v1.json", "r") as f:
             cache = json.load(f)
             cache[self.name] = self.youtube_id
             cache["last_updated"] = arrow.now().isoformat()
-        with open("./youtube_playlists.json", "w") as f:
+        with open("youtube_playlists_v1.json", "w") as f:
             json.dump(cache, f)
 
-    def is_song_in_youtube_playlist(self, tune, quota):
+    def is_song_in_youtube_playlist(self, tune):
         """Checks if the song is already in the playlist if"""
         if self.youtube_playlist_cache:
-            with open(f"./playlist_cache/{self.name}", "r") as f:
+            with open("youtube_playlists_v1.json", "r") as f:
                 cache = json.load(f)
-                for song in cache["tracks"]:
+                for song in cache["playlists"][self.name]["tracks"]:
                     if song["track_name"] == tune["track_name"] and song["artist_name"] == tune[
                         "artist_name"
                     ]:
                         return True
-        if quota.remaining == 0:
-            print("Youtube quota exceeded, can't check if song is in playlist")
-            return
-        request = handle_request(
-            func=self.youtube.playlistItems().list,
-            part="snippet",
-            playlistId=self.youtube_id,
-            maxResults=50,
-        )
-        budget_approval = quota.budget(1)
-        if not budget_approval:
-            print("Youtube quota exceeded, can't check if song is in playlist")
-            return
-        if response := handle_request(func=request.execute):
-            quota.spend(1)
-            quota.log_success(response, self.name)
-            for item in response["items"]:
-                if item["snippet"]["title"] == tune["track_name"]:
-                    return True
         return False
 
 
