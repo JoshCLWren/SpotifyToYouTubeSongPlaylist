@@ -8,7 +8,7 @@ from youtube_playlist import YoutubePlaylists
 
 def __main__():
     """Main function"""
-
+    # import pdb; pdb.set_trace()
     if not os.path.exists("./song_cache"):
         os.mkdir("./song_cache")
     if not os.path.exists("./playlist_cache"):
@@ -20,18 +20,17 @@ def __main__():
 
     youtube_playlists = YoutubePlaylists(user.youtube)
 
-    for spotify_playlist_id in user.spotify_playlist_ids:
+    for playlist_count, spotify_playlist_id in enumerate(user.spotify_playlist_ids, start=1):
+        print(f"Processing playlist {playlist_count} of {len(user.spotify_playlist_ids)}")
         playlist = Playlist(
             spotify_playlist_id,
             user.spotify,
             youtube=user.youtube,
             youtube_playlists=youtube_playlists,
+            spotify_playlists=user.playlists,
         )
-        try:
-            playlist.place_songs_in_playlist()
-        except Exception as e:
-            print(e)
-            continue
+        playlist.place_songs_in_playlist()
+
 
 
 if __name__ == "__main__":

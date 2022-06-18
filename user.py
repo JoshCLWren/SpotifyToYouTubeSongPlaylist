@@ -63,8 +63,6 @@ class User:
         self.spotify_json = spotify_json
         with open("client_codes_Spotify.json") as f:
             client_codes = json.load(f)
-        import pdb
-
         self.app_token = prevent_429(
             func=request_client_token,
             client_id=str(client_codes["client_id"]),
@@ -77,7 +75,7 @@ class User:
                 try:
                     playlists = json.load(f)
                 except Exception:
-                    playlists = {}
+                    self.playlists = {}
                 if (
                     len(playlists) > 1
                     and (arrow.get(playlists.get("last_updated")) - arrow.now()).days

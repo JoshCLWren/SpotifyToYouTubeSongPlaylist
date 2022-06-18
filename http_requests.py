@@ -7,6 +7,7 @@ logging.basicConfig(filename="example.log", level=logging.DEBUG)
 def prevent_429(func, **kwargs):
     """Handles outside requests and waits if there's an error"""
     try:
+        time.sleep(2)
         return func(**kwargs)
     except Exception as e:
 

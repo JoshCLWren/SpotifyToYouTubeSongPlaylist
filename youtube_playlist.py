@@ -18,19 +18,17 @@ class YoutubePlaylists:
         self.as_dict, self.ids, self.names = self.get_youtube_playlists()
 
     def get_youtube_playlists_from_cache(self):
-        """Gets the youtube playlists from the cache"""
-        import pdb
-
+        """Gets the YouTube playlists from the cache"""
         if not os.path.exists("youtube_playlists.json"):
             return None
         try:
             with open("youtube_playlists.json") as f:
                 youtube_playlist_cache = json.load(f)
                 if youtube_playlist_cache["playlist_count"] == 0:
-                    return None
+                    return {"playlist_count": 0}
                 return youtube_playlist_cache
         except json.JSONDecodeError:
-            return None
+            return {"playlist_count": 0}
 
     def get_youtube_playlists(self):
         """Gets all the users Youtube playlists"""
@@ -43,13 +41,12 @@ class YoutubePlaylists:
             and len(youtube_playlists) > 0
             and youtube_playlists["playlist_count"] > 0
         ):
-
             return (
                 youtube_playlists,
                 [value for _, value in youtube_playlists.items()][:-2],
                 [playlist for playlist in youtube_playlists][:-2],
             )
-        if youtube_playlists["playlist_count"] == 0:
+        if not youtube_playlists or youtube_playlists.get("playlist_count", 0) == 0:
             youtube_playlists, _ids, _names = self._get_current_youtube()
             return (
                 youtube_playlists,
