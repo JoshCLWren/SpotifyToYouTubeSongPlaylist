@@ -2,7 +2,7 @@ import contextlib
 import os
 import json
 import arrow
-from http_requests import prevent_429
+from http_requests import handle_request
 
 
 class Song:
@@ -73,29 +73,40 @@ class Song:
             artist = track.artists
             artist = artist[0]
             print(f"{track.name} by {artist.name}")
-            self.get_song_youtube()
+            self.get_song_youtube(youtube_quota=None)
 
     # Searches the name of the song by the artist and get the first video on the lists id
-    def get_song_youtube(self):
+    def get_song_youtube(self, youtube_quota):
         """Gets the song from youtube"""
-        if is_it_cached := self.check_cache():
-            return is_it_cached["video_id"]
-        request = prevent_429(
+        if youtube_id := self.check_cache():
+            return youtube_id
+        if youtube_quota == 0:
+            print("You have reached your quota for youtube searches, please try again later")
+            return None
+        budget_approval = youtube_quota.budget(1)
+        if not budget_approval:
+            print("Budget exceeded, please try again later. Can't get song from youtube")
+            return None
+        request = handle_request(
             func=self.youtube.search().list,
             part="snippet",
             maxResults=1,
             q=f"({self.full_name}) ({self.album_name})",
         )
         try:
-            response = prevent_429(func=request.execute)
-
-            response = response.get("items")
-            response = response[0]
-            response = response.get("id")
-            return response.get("videoId")
+            return self._handle_response(request, youtube_quota)
         except Exception as e:
             print(e)
             return None
+
+    def _handle_response(self, request, youtube_quota):
+        response = handle_request(func=request.execute)
+        youtube_quota.spend(1)
+        youtube_quota.log_success(response, self.full_name)
+        response = response.get("items")
+        response = response[0]
+        response = response.get("id")
+        return response.get("videoId")
 
     def cache_song(self):
         """Caches the song"""
@@ -140,13 +151,10 @@ class Song:
                             f"./song_cache/{self.artist_name}/{self.track_name}.json", "r"
                     ) as f:
                 cache = json.load(f)
-                try:
-                    if cache["video_id"] == self.youtube_id:
-                        print(f"{self.full_name} is already in cache")
-                        return cache
-                except AttributeError:
-                    import pdb
-                    pdb.set_trace()
+                if cache["video_id"] == self.youtube_id:
+                    print(f"{self.full_name} is already in cache")
+                    return cache["video_id"]
+
         return False
 
     def update_song_cache(self):

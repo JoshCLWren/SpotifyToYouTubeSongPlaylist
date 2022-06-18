@@ -2,74 +2,34 @@ import json
 import os
 
 import arrow
-import google_auth_oauthlib.flow
-import googleapiclient.discovery
-import googleapiclient.errors
 from tekore import Spotify, request_client_token
 
-from http_requests import prevent_429
+from http_requests import handle_request
 from playlist import Playlist
 from song import Song
 
 
-class User:
-    """The user class"""
-
-    def auth_youtube(self):
-        """initialize and authenticate with Youtube"""
-        # Get credentials and create an API client
-        # check if the cache is recent enough to use
-
-        if os.path.exists("youtube_auth_cache.json"):
-            with open("youtube_auth_cache.json") as f:
-                cache = json.load(f)
-
-        port = os.environ.get("PORT", 8080)
-        flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
-            self.client_secrets_file, self.scopes
-        )
-        try:
-            credentials = flow.run_local_server(port=port)
-        except OSError:
-            port = int(port) + 1
-            print(f"The server is still running, trying port {port}")
-
-            credentials = flow.run_local_server(port=port)
-
-        auth = googleapiclient.discovery.build(
-            self.api_service_name, self.api_version, credentials=credentials
-        )
-
-        with open("youtube_auth_cache.json", "w") as f:
-
-            keys = [_attr for _attr in dir(credentials) if not _attr.startswith("_")]
-            auth_dict = {key: str(getattr(credentials, key)) for key in keys}
-            auth_dict["last_updated"] = arrow.now().isoformat()
-            json.dump(auth_dict, f)
-        return auth
+class SpotifySession:
+    """The Spotify Session class"""
 
     def __init__(
-        self,
-        spotify_user_id=os.getenv("spotify_user_id", None),
-        spotify_json="client_codes_Spotify.json",
+            self,
+            spotify_user_id=os.getenv("spotify_user_id", None),
+            spotify_json="client_codes_Spotify.json",
     ):
         """initialize User Info"""
-        self.auth_status = False
-        self.scopes = ["https://www.googleapis.com/auth/youtube.force-ssl"]
-        self.api_service_name = "youtube"
-        self.api_version = "v3"
-        self.client_secrets_file = "client_secret_YouTube.json"
+
         self.spotify_user_id = spotify_user_id
         self.spotify_json = spotify_json
         with open("client_codes_Spotify.json") as f:
             client_codes = json.load(f)
-        self.app_token = prevent_429(
+        self.app_token = handle_request(
             func=request_client_token,
             client_id=str(client_codes["client_id"]),
             client_secret=str(client_codes["client_secret"]),
         )
         self.spotify = Spotify(self.app_token)
-        self.youtube = prevent_429(func=self.auth_youtube)
+
         if os.path.exists("spotify_playlist_cache.json"):
             with open("spotify_playlist_cache.json") as f:
                 try:
@@ -77,9 +37,9 @@ class User:
                 except Exception:
                     self.playlists = {}
                 if (
-                    len(playlists) > 1
-                    and (arrow.get(playlists.get("last_updated")) - arrow.now()).days
-                    < 7
+                        len(playlists) > 1
+                        and (arrow.get(playlists.get("last_updated")) - arrow.now()).days
+                        < 7
                 ):
                     self.playlists = playlists
                     self.spotify_playlist_ids = [
