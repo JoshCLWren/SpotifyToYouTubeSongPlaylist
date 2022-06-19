@@ -1,7 +1,9 @@
 import contextlib
-import os
 import json
+import os
+
 import arrow
+
 from http_requests import handle_request
 
 
@@ -9,19 +11,21 @@ class Song:
     """a class for a song"""
 
     def __init__(
-            self,
-            spotify_meta_data,
-            spotify_cache=False,
-            spotify_playlist_id=None,
-            playlist_id_youtube=None,
-            youtube=None,
-            spotify=None,
+        self,
+        spotify_meta_data,
+        spotify_cache=False,
+        spotify_playlist_id=None,
+        playlist_id_youtube=None,
+        youtube=None,
+        spotify=None,
     ):
         """initializer doc string"""
         if not spotify_cache:
             names = spotify_meta_data.track.artists
             if len(names) > 1:
-                self.artist_name = f"{names[0].name} featuring {names[1].name}".replace("/", "")
+                self.artist_name = f"{names[0].name} featuring {names[1].name}".replace(
+                    "/", ""
+                )
             else:
                 self.artist_name = names[0].name.replace("/", "")
             self.track_name = spotify_meta_data.track.name.replace("/", "")
@@ -81,11 +85,15 @@ class Song:
         if youtube_id := self.check_cache():
             return youtube_id
         if youtube_quota == 0:
-            print("You have reached your quota for youtube searches, please try again later")
+            print(
+                "You have reached your quota for youtube searches, please try again later"
+            )
             return None
         budget_approval = youtube_quota.budget(1)
         if not budget_approval:
-            print("Budget exceeded, please try again later. Can't get song from youtube")
+            print(
+                "Budget exceeded, please try again later. Can't get song from youtube"
+            )
             return None
         request = handle_request(
             func=self.youtube.search().list,
@@ -130,14 +138,16 @@ class Song:
         path += f"/{self.track_name}.json"
         path.replace("/", "")
         if not os.path.exists(path):
-            with open(f"./song_cache/{self.artist_name}/{self.track_name}.json", "w") as f:
+            with open(
+                f"./song_cache/{self.artist_name}/{self.track_name}.json", "w"
+            ) as f:
 
                 json.dump(song_to_cache, f)
                 return song_to_cache
         else:
             # read cache and check if song is already in cache
             with open(
-                    f"./song_cache/{self.artist_name}/{self.track_name}.json", "r"
+                f"./song_cache/{self.artist_name}/{self.track_name}.json", "r"
             ) as f:
                 cache = json.load(f)
                 if cache["video_id"] == self.youtube_id:
@@ -148,12 +158,12 @@ class Song:
         """Checks if the song is in the cache"""
         if os.path.exists(f"./song_cache/{self.artist_name}/{self.track_name}.json"):
             with open(
-                            f"./song_cache/{self.artist_name}/{self.track_name}.json", "r"
-                    ) as f:
+                f"./song_cache/{self.artist_name}/{self.track_name}.json", "r"
+            ) as f:
                 cache = json.load(f)
-                if cache["video_id"] == self.youtube_id:
+                if cache.get("video_id") == self.youtube_id:
                     print(f"{self.full_name} is already in cache")
-                    return cache["video_id"]
+                    return cache.get("video_id")
 
         return False
 
@@ -176,14 +186,16 @@ class Song:
             os.mkdir(f"./song_cache/{self.artist_name}")
         path += f"/{self.track_name}.json"
         if not os.path.exists(path):
-            with open(f"./song_cache/{self.artist_name}/{self.track_name}.json", "w") as f:
+            with open(
+                f"./song_cache/{self.artist_name}/{self.track_name}.json", "w"
+            ) as f:
 
                 json.dump(song_to_cache, f)
                 return song_to_cache
         else:
             # read cache and check if song is already in cache
             with open(
-                    f"./song_cache/{self.artist_name}/{self.track_name}.json", "r"
+                f"./song_cache/{self.artist_name}/{self.track_name}.json", "r"
             ) as f:
                 cache = json.load(f)
                 if cache["video_id"] == self.youtube_id:
@@ -191,7 +203,7 @@ class Song:
                     return cache
                 else:
                     with open(
-                            f"./song_cache/{self.artist_name}/{self.track_name}.json", "w"
+                        f"./song_cache/{self.artist_name}/{self.track_name}.json", "w"
                     ) as f:
                         json.dump(song_to_cache, f)
                         return song_to_cache

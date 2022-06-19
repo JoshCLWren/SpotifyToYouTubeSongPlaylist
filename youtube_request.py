@@ -1,20 +1,21 @@
 """module for making requests to YouTube api"""
 
-import arrow
 import json
 import os
 
-
-import requests
+import arrow
 import google_auth_oauthlib.flow
 import googleapiclient.discovery
 import googleapiclient.errors
+import requests
 
 
 class Quota:
     """A class with quota related state properties"""
 
-    def __init__(self, ):
+    def __init__(
+        self,
+    ):
         self.daily_quota = 10000
         self.remaining = 10000
         # quota resets at midnight pacific time
@@ -51,8 +52,13 @@ class Quota:
             os.mkdir("./quota_log.json")
             with open("./quota_log.json", "w") as f:
                 cache = {}
-        cache[arrow.now()] = {"request": response, "obj": obj, "success": True, "quota": self.remaining,
-                              "total": self.total_requests}
+        cache[arrow.now()] = {
+            "request": response,
+            "obj": obj,
+            "success": True,
+            "quota": self.remaining,
+            "total": self.total_requests,
+        }
         with open("./quota_log.json", "w") as f:
             json.dump(cache, f)
         self.successful_requests += 1
@@ -62,7 +68,7 @@ class Quota:
 class YouTubeRequest:
     """A class with YouTube request related state properties"""
 
-    def __init__(self, quota):
+    def __init__(self, quota, youtubeauth_session):
         self.quota = quota
         self.base_url = "https://www.googleapis.com/youtube/v3/"
         self.api_key = os.environ.get("YOUTUBE_API_KEY")
@@ -70,6 +76,7 @@ class YouTubeRequest:
             "Content-Type": "application/json",
             "Authorization": f"Bearer {self.api_key}",
         }
+        self.session = youtubeauth_session
 
     def execute(self, endpoint, **kwargs):
         """Executes a request"""
@@ -113,4 +120,6 @@ class YouTubeAuthSession:
 
             credentials = flow.run_local_server(port=port)
 
-        return googleapiclient.discovery.build(self.api_service_name, self.api_version, credentials=credentials)
+        return googleapiclient.discovery.build(
+            self.api_service_name, self.api_version, credentials=credentials
+        )

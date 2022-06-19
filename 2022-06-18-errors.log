@@ -3362,3 +3362,227 @@ DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/5uVZV
 DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/2aVSUUZKxfVBKHrwPEJLTW/tracks?limit=100&offset=0&additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
 DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4cF7vfKRvQFLRFVCVsICyl/tracks?limit=100&offset=0&additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
 DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/32M9BylCundeBfc7dV1yHd/tracks?limit=100&offset=0&additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-06-18T19:36:02.285411-05:001 seconds waited, no error, for request_client_token
+DEBUG:requests_oauthlib.oauth2_session:Generated new state hLoECSfF6pkqNjT5TMpzve6gfhMVz8.
+INFO:google_auth_oauthlib.flow:"GET /?state=hLoECSfF6pkqNjT5TMpzve6gfhMVz8&code=4/0AX4XfWgFJ9Oee9OUmDEABOm1kezs-fQEsAE4UuMxwmdGUVucXN1hIxOArbJ0pKSHoE2_Ag&scope=https://www.googleapis.com/auth/youtube.force-ssl HTTP/1.1" 200 65
+DEBUG:requests_oauthlib.oauth2_session:Encoding `client_id` "845416578463-b27gsmn3ohd9jht15d4nr11fgnsetldk.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+DEBUG:requests_oauthlib.oauth2_session:Requesting url https://oauth2.googleapis.com/token using method POST.
+DEBUG:requests_oauthlib.oauth2_session:Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AX4XfWgFJ9Oee9OUmDEABOm1kezs-fQEsAE4UuMxwmdGUVucXN1hIxOArbJ0pKSHoE2_Ag', 'redirect_uri': 'http://localhost:8080/'}
+DEBUG:requests_oauthlib.oauth2_session:Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x1058ad070>, 'verify': True, 'proxies': None, 'cert': None}.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:requests_oauthlib.oauth2_session:Request to fetch token completed with status 200.
+DEBUG:requests_oauthlib.oauth2_session:Request url was https://oauth2.googleapis.com/token
+DEBUG:requests_oauthlib.oauth2_session:Request headers were {'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '156', 'Authorization': 'Basic ODQ1NDE2NTc4NDYzLWIyN2dzbW4zb2hkOWpodDE1ZDRucjExZmduc2V0bGRrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1FQWdHbGtpQ2c2azRnRXdDbWJNODVrUXVHelMz'}
+DEBUG:requests_oauthlib.oauth2_session:Request body was grant_type=authorization_code&code=4%2F0AX4XfWgFJ9Oee9OUmDEABOm1kezs-fQEsAE4UuMxwmdGUVucXN1hIxOArbJ0pKSHoE2_Ag&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F
+DEBUG:requests_oauthlib.oauth2_session:Response headers were {'Pragma': 'no-cache', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Date': 'Sun, 19 Jun 2022 00:36:09 GMT', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.a0ARrdaM9sW3-UD0BpfnOVLjudJfwWqJfSXrEqPzIDadk9Az83ebIDjE2UOWVWWUMOE6xNX7NLVoZxBTao4W-JkW9L__cTCKKOqcK6EDCPKK208EBk5qArNHw2qDxwo4De_S0StixeYTUwXzu8Zlq8pA994JqH",
+  "expires_in": 3599,
+  "refresh_token": "1//05c3tAr-UK7qICgYIARAAGAUSNwF-L9IrkU1i1sh3W-tAepXbNBR6fSjZIAyKLQ3bGx5i6Je6rnUT2VXRP1BXQtzcui-jqEr4xqc",
+  "scope": "https://www.googleapis.com/auth/youtube.force-ssl",
+  "token_type": "Bearer"
+}.
+DEBUG:requests_oauthlib.oauth2_session:Invoking 0 token response hooks.
+DEBUG:requests_oauthlib.oauth2_session:Obtained token {'access_token': 'ya29.a0ARrdaM9sW3-UD0BpfnOVLjudJfwWqJfSXrEqPzIDadk9Az83ebIDjE2UOWVWWUMOE6xNX7NLVoZxBTao4W-JkW9L__cTCKKOqcK6EDCPKK208EBk5qArNHw2qDxwo4De_S0StixeYTUwXzu8Zlq8pA994JqH', 'expires_in': 3599, 'refresh_token': '1//05c3tAr-UK7qICgYIARAAGAUSNwF-L9IrkU1i1sh3W-tAepXbNBR6fSjZIAyKLQ3bGx5i6Je6rnUT2VXRP1BXQtzcui-jqEr4xqc', 'scope': ['https://www.googleapis.com/auth/youtube.force-ssl'], 'token_type': 'Bearer', 'expires_at': 1655602568.507431}.
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-06-18T19:38:13.523568-05:001 seconds waited, no error, for request_client_token
+DEBUG:requests_oauthlib.oauth2_session:Generated new state 8anxp93uZAQs0oOJMTJEUpApuz6JbQ.
+INFO:google_auth_oauthlib.flow:"GET /?state=8anxp93uZAQs0oOJMTJEUpApuz6JbQ&code=4/0AX4XfWgS06PRTl1EuVbOUuyLue1rzBeJ7_RMp0Lr_oOXSx69dsLSlvbw0Br83O_vaQbzSw&scope=https://www.googleapis.com/auth/youtube.force-ssl HTTP/1.1" 200 65
+DEBUG:requests_oauthlib.oauth2_session:Encoding `client_id` "845416578463-b27gsmn3ohd9jht15d4nr11fgnsetldk.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+DEBUG:requests_oauthlib.oauth2_session:Requesting url https://oauth2.googleapis.com/token using method POST.
+DEBUG:requests_oauthlib.oauth2_session:Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AX4XfWgS06PRTl1EuVbOUuyLue1rzBeJ7_RMp0Lr_oOXSx69dsLSlvbw0Br83O_vaQbzSw', 'redirect_uri': 'http://localhost:8080/'}
+DEBUG:requests_oauthlib.oauth2_session:Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x106c05430>, 'verify': True, 'proxies': None, 'cert': None}.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:requests_oauthlib.oauth2_session:Request to fetch token completed with status 200.
+DEBUG:requests_oauthlib.oauth2_session:Request url was https://oauth2.googleapis.com/token
+DEBUG:requests_oauthlib.oauth2_session:Request headers were {'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '156', 'Authorization': 'Basic ODQ1NDE2NTc4NDYzLWIyN2dzbW4zb2hkOWpodDE1ZDRucjExZmduc2V0bGRrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1FQWdHbGtpQ2c2azRnRXdDbWJNODVrUXVHelMz'}
+DEBUG:requests_oauthlib.oauth2_session:Request body was grant_type=authorization_code&code=4%2F0AX4XfWgS06PRTl1EuVbOUuyLue1rzBeJ7_RMp0Lr_oOXSx69dsLSlvbw0Br83O_vaQbzSw&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F
+DEBUG:requests_oauthlib.oauth2_session:Response headers were {'Date': 'Sun, 19 Jun 2022 00:38:19 GMT', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.a0ARrdaM-c7vI2ryjlZ3zo5mmukT_OcW_jh3Q7Z30JUPS0T4NR3Skq0qjtCxySGQHtKjcdW_0M0msFXTP5e-3jQgaS8QIybnc08YBUJSLf8-7Wg_OzWzYmTbB2UDelNMvZRJsCSeHjtchtAGmuQtcnFNgZRGAM",
+  "expires_in": 3599,
+  "refresh_token": "1//0fu5zQCs-N9ykCgYIARAAGA8SNwF-L9IrIBvE8b-1Kk6a1J8MCRfUbejXfTcuhzXYpcALsTttCrJlryY1EaQaFbP05QzYitylEW0",
+  "scope": "https://www.googleapis.com/auth/youtube.force-ssl",
+  "token_type": "Bearer"
+}.
+DEBUG:requests_oauthlib.oauth2_session:Invoking 0 token response hooks.
+DEBUG:requests_oauthlib.oauth2_session:Obtained token {'access_token': 'ya29.a0ARrdaM-c7vI2ryjlZ3zo5mmukT_OcW_jh3Q7Z30JUPS0T4NR3Skq0qjtCxySGQHtKjcdW_0M0msFXTP5e-3jQgaS8QIybnc08YBUJSLf8-7Wg_OzWzYmTbB2UDelNMvZRJsCSeHjtchtAGmuQtcnFNgZRGAM', 'expires_in': 3599, 'refresh_token': '1//0fu5zQCs-N9ykCgYIARAAGA8SNwF-L9IrIBvE8b-1Kk6a1J8MCRfUbejXfTcuhzXYpcALsTttCrJlryY1EaQaFbP05QzYitylEW0', 'scope': ['https://www.googleapis.com/auth/youtube.force-ssl'], 'token_type': 'Bearer', 'expires_at': 1655602698.566113}.
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-06-18T19:38:44.322786-05:001 seconds waited, no error, for request_client_token
+DEBUG:requests_oauthlib.oauth2_session:Generated new state pkTuwpalmhXUqWxxRK53Rz4XXwYd9M.
+INFO:google_auth_oauthlib.flow:"GET /?state=pkTuwpalmhXUqWxxRK53Rz4XXwYd9M&code=4/0AX4XfWiyzXypGRKYVoxxgE9SUMzjqYmwZkCX1ex1TjLz2ZJ_jxxeeUQrVH2okbBbxIwRVg&scope=https://www.googleapis.com/auth/youtube.force-ssl HTTP/1.1" 200 65
+DEBUG:requests_oauthlib.oauth2_session:Encoding `client_id` "845416578463-b27gsmn3ohd9jht15d4nr11fgnsetldk.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+DEBUG:requests_oauthlib.oauth2_session:Requesting url https://oauth2.googleapis.com/token using method POST.
+DEBUG:requests_oauthlib.oauth2_session:Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AX4XfWiyzXypGRKYVoxxgE9SUMzjqYmwZkCX1ex1TjLz2ZJ_jxxeeUQrVH2okbBbxIwRVg', 'redirect_uri': 'http://localhost:8081/'}
+DEBUG:requests_oauthlib.oauth2_session:Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x1058f8b20>, 'verify': True, 'proxies': None, 'cert': None}.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:requests_oauthlib.oauth2_session:Request to fetch token completed with status 200.
+DEBUG:requests_oauthlib.oauth2_session:Request url was https://oauth2.googleapis.com/token
+DEBUG:requests_oauthlib.oauth2_session:Request headers were {'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '156', 'Authorization': 'Basic ODQ1NDE2NTc4NDYzLWIyN2dzbW4zb2hkOWpodDE1ZDRucjExZmduc2V0bGRrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1FQWdHbGtpQ2c2azRnRXdDbWJNODVrUXVHelMz'}
+DEBUG:requests_oauthlib.oauth2_session:Request body was grant_type=authorization_code&code=4%2F0AX4XfWiyzXypGRKYVoxxgE9SUMzjqYmwZkCX1ex1TjLz2ZJ_jxxeeUQrVH2okbBbxIwRVg&redirect_uri=http%3A%2F%2Flocalhost%3A8081%2F
+DEBUG:requests_oauthlib.oauth2_session:Response headers were {'Pragma': 'no-cache', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Date': 'Sun, 19 Jun 2022 00:38:50 GMT', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.a0ARrdaM-xCoOdnKDAU-SF3PhXA7re1UAHgCYonSCdLOgoCZPfJ-H0_ro2w6_XyXwFHWoEORbw5LKby1oK55skgwEm68lB__R-8akVXTmU2jOvyoAKaWaMTvkkyvWAAuj9M2qNqv3Vw_4MHLzSeUndPZce61J_",
+  "expires_in": 3599,
+  "refresh_token": "1//0fw7m90in_oU_CgYIARAAGA8SNwF-L9IrpPmvqB2Ed5t91kvnuQa0l_PlGBR2I1imUI0rIXP-fBixMb4tIlJr-tp-onNMB31HAlI",
+  "scope": "https://www.googleapis.com/auth/youtube.force-ssl",
+  "token_type": "Bearer"
+}.
+DEBUG:requests_oauthlib.oauth2_session:Invoking 0 token response hooks.
+DEBUG:requests_oauthlib.oauth2_session:Obtained token {'access_token': 'ya29.a0ARrdaM-xCoOdnKDAU-SF3PhXA7re1UAHgCYonSCdLOgoCZPfJ-H0_ro2w6_XyXwFHWoEORbw5LKby1oK55skgwEm68lB__R-8akVXTmU2jOvyoAKaWaMTvkkyvWAAuj9M2qNqv3Vw_4MHLzSeUndPZce61J_', 'expires_in': 3599, 'refresh_token': '1//0fw7m90in_oU_CgYIARAAGA8SNwF-L9IrpPmvqB2Ed5t91kvnuQa0l_PlGBR2I1imUI0rIXP-fBixMb4tIlJr-tp-onNMB31HAlI', 'scope': ['https://www.googleapis.com/auth/youtube.force-ssl'], 'token_type': 'Bearer', 'expires_at': 1655602729.417653}.
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-06-18T19:40:54.014604-05:001 seconds waited, no error, for request_client_token
+DEBUG:requests_oauthlib.oauth2_session:Generated new state vRf40qXvpC4gjGqAIT9JomdRGUO9i3.
+INFO:google_auth_oauthlib.flow:"GET /?state=vRf40qXvpC4gjGqAIT9JomdRGUO9i3&code=4/0AX4XfWhnRRXB00ZUPJJHDSgdVzSlEBVJeUzwRHB_AYlFKkgM-EpoarI76_k4r-Z2_MSHHg&scope=https://www.googleapis.com/auth/youtube.force-ssl HTTP/1.1" 200 65
+DEBUG:requests_oauthlib.oauth2_session:Encoding `client_id` "845416578463-b27gsmn3ohd9jht15d4nr11fgnsetldk.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+DEBUG:requests_oauthlib.oauth2_session:Requesting url https://oauth2.googleapis.com/token using method POST.
+DEBUG:requests_oauthlib.oauth2_session:Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AX4XfWhnRRXB00ZUPJJHDSgdVzSlEBVJeUzwRHB_AYlFKkgM-EpoarI76_k4r-Z2_MSHHg', 'redirect_uri': 'http://localhost:8080/'}
+DEBUG:requests_oauthlib.oauth2_session:Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x10548deb0>, 'verify': True, 'proxies': None, 'cert': None}.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:requests_oauthlib.oauth2_session:Request to fetch token completed with status 200.
+DEBUG:requests_oauthlib.oauth2_session:Request url was https://oauth2.googleapis.com/token
+DEBUG:requests_oauthlib.oauth2_session:Request headers were {'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '156', 'Authorization': 'Basic ODQ1NDE2NTc4NDYzLWIyN2dzbW4zb2hkOWpodDE1ZDRucjExZmduc2V0bGRrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1FQWdHbGtpQ2c2azRnRXdDbWJNODVrUXVHelMz'}
+DEBUG:requests_oauthlib.oauth2_session:Request body was grant_type=authorization_code&code=4%2F0AX4XfWhnRRXB00ZUPJJHDSgdVzSlEBVJeUzwRHB_AYlFKkgM-EpoarI76_k4r-Z2_MSHHg&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F
+DEBUG:requests_oauthlib.oauth2_session:Response headers were {'Pragma': 'no-cache', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Date': 'Sun, 19 Jun 2022 00:40:59 GMT', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.a0ARrdaM-Ox_bOFw-wi8GtpxdV4wM7R9MfAwCStdYtu0tV_tkztuBaWBhGtAps6BgUUzBxoQLpDkKLMsM680dFcHVNZcCDP7XvlVd2O5I1OSbPHMAq13qGD-cSw1cWstbm-CzCFTiDL0vh8LS9XtHu6l7nMmFa",
+  "expires_in": 3599,
+  "refresh_token": "1//05Vb6NhQgmS77CgYIARAAGAUSNwF-L9Ir4SgJpJqMOO_t7O2MSGulevZRpD_Xm7rNkskQyIwpjza3fjEMLjdbU_rySgG3qMHxfxY",
+  "scope": "https://www.googleapis.com/auth/youtube.force-ssl",
+  "token_type": "Bearer"
+}.
+DEBUG:requests_oauthlib.oauth2_session:Invoking 0 token response hooks.
+DEBUG:requests_oauthlib.oauth2_session:Obtained token {'access_token': 'ya29.a0ARrdaM-Ox_bOFw-wi8GtpxdV4wM7R9MfAwCStdYtu0tV_tkztuBaWBhGtAps6BgUUzBxoQLpDkKLMsM680dFcHVNZcCDP7XvlVd2O5I1OSbPHMAq13qGD-cSw1cWstbm-CzCFTiDL0vh8LS9XtHu6l7nMmFa', 'expires_in': 3599, 'refresh_token': '1//05Vb6NhQgmS77CgYIARAAGAUSNwF-L9Ir4SgJpJqMOO_t7O2MSGulevZRpD_Xm7rNkskQyIwpjza3fjEMLjdbU_rySgG3qMHxfxY', 'scope': ['https://www.googleapis.com/auth/youtube.force-ssl'], 'token_type': 'Bearer', 'expires_at': 1655602858.7711291}.
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-06-18T19:41:30.647274-05:001 seconds waited, no error, for request_client_token
+DEBUG:requests_oauthlib.oauth2_session:Generated new state SY2REhC3UUvENROYFkAlPJqDIitMKj.
+INFO:google_auth_oauthlib.flow:"GET /?state=SY2REhC3UUvENROYFkAlPJqDIitMKj&code=4/0AX4XfWinf5cdes0wRySlCrCn0vb3qbknhDnQWrqXrKo2pVzXjudi0nMsOY9CaNQN5S-4qw&scope=https://www.googleapis.com/auth/youtube.force-ssl HTTP/1.1" 200 65
+DEBUG:requests_oauthlib.oauth2_session:Encoding `client_id` "845416578463-b27gsmn3ohd9jht15d4nr11fgnsetldk.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+DEBUG:requests_oauthlib.oauth2_session:Requesting url https://oauth2.googleapis.com/token using method POST.
+DEBUG:requests_oauthlib.oauth2_session:Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AX4XfWinf5cdes0wRySlCrCn0vb3qbknhDnQWrqXrKo2pVzXjudi0nMsOY9CaNQN5S-4qw', 'redirect_uri': 'http://localhost:8080/'}
+DEBUG:requests_oauthlib.oauth2_session:Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x105407fd0>, 'verify': True, 'proxies': None, 'cert': None}.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:requests_oauthlib.oauth2_session:Request to fetch token completed with status 200.
+DEBUG:requests_oauthlib.oauth2_session:Request url was https://oauth2.googleapis.com/token
+DEBUG:requests_oauthlib.oauth2_session:Request headers were {'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '156', 'Authorization': 'Basic ODQ1NDE2NTc4NDYzLWIyN2dzbW4zb2hkOWpodDE1ZDRucjExZmduc2V0bGRrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1FQWdHbGtpQ2c2azRnRXdDbWJNODVrUXVHelMz'}
+DEBUG:requests_oauthlib.oauth2_session:Request body was grant_type=authorization_code&code=4%2F0AX4XfWinf5cdes0wRySlCrCn0vb3qbknhDnQWrqXrKo2pVzXjudi0nMsOY9CaNQN5S-4qw&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F
+DEBUG:requests_oauthlib.oauth2_session:Response headers were {'Pragma': 'no-cache', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Date': 'Sun, 19 Jun 2022 00:41:36 GMT', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.a0ARrdaM_OFN3IFY_w5RIcM-Cjcl4RGYdywWAnaa2P7Se17heV7pTzfg6VTiunU5E0hHTHpqqdMt_Pgh7UccyLh3CJVxgCTCtSKxmfqKDXaoqIKCzXkLZhy9LdI6Z2Ey5J4qhHS6cJcQ26CNgrIaqFYXMe9HDu",
+  "expires_in": 3599,
+  "refresh_token": "1//0fb06bjAt9mqHCgYIARAAGA8SNwF-L9IrHpm3IlstOundK5MvIvDRys7v301xFpfwgq_z542jwCOCM5lkh92YTzHicx9Dl68yCuo",
+  "scope": "https://www.googleapis.com/auth/youtube.force-ssl",
+  "token_type": "Bearer"
+}.
+DEBUG:requests_oauthlib.oauth2_session:Invoking 0 token response hooks.
+DEBUG:requests_oauthlib.oauth2_session:Obtained token {'access_token': 'ya29.a0ARrdaM_OFN3IFY_w5RIcM-Cjcl4RGYdywWAnaa2P7Se17heV7pTzfg6VTiunU5E0hHTHpqqdMt_Pgh7UccyLh3CJVxgCTCtSKxmfqKDXaoqIKCzXkLZhy9LdI6Z2Ey5J4qhHS6cJcQ26CNgrIaqFYXMe9HDu', 'expires_in': 3599, 'refresh_token': '1//0fb06bjAt9mqHCgYIARAAGA8SNwF-L9IrHpm3IlstOundK5MvIvDRys7v301xFpfwgq_z542jwCOCM5lkh92YTzHicx9Dl68yCuo', 'scope': ['https://www.googleapis.com/auth/youtube.force-ssl'], 'token_type': 'Bearer', 'expires_at': 1655602895.186483}.
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-06-18T19:42:08.974499-05:001 seconds waited, no error, for request_client_token
+DEBUG:requests_oauthlib.oauth2_session:Generated new state xOPAYIUFGpCCrIb8DPRPtPbQqWwo9S.
+INFO:google_auth_oauthlib.flow:"GET /?state=xOPAYIUFGpCCrIb8DPRPtPbQqWwo9S&code=4/0AX4XfWg2PgwKM9oT0nK6ujQIJ9dcH7oDYn9KVTUVRKZ7hJeC63AIJ7Bb_s0khHV6hb2ljw&scope=https://www.googleapis.com/auth/youtube.force-ssl HTTP/1.1" 200 65
+DEBUG:requests_oauthlib.oauth2_session:Encoding `client_id` "845416578463-b27gsmn3ohd9jht15d4nr11fgnsetldk.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+DEBUG:requests_oauthlib.oauth2_session:Requesting url https://oauth2.googleapis.com/token using method POST.
+DEBUG:requests_oauthlib.oauth2_session:Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AX4XfWg2PgwKM9oT0nK6ujQIJ9dcH7oDYn9KVTUVRKZ7hJeC63AIJ7Bb_s0khHV6hb2ljw', 'redirect_uri': 'http://localhost:8080/'}
+DEBUG:requests_oauthlib.oauth2_session:Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x102e99220>, 'verify': True, 'proxies': None, 'cert': None}.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:requests_oauthlib.oauth2_session:Request to fetch token completed with status 200.
+DEBUG:requests_oauthlib.oauth2_session:Request url was https://oauth2.googleapis.com/token
+DEBUG:requests_oauthlib.oauth2_session:Request headers were {'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '156', 'Authorization': 'Basic ODQ1NDE2NTc4NDYzLWIyN2dzbW4zb2hkOWpodDE1ZDRucjExZmduc2V0bGRrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1FQWdHbGtpQ2c2azRnRXdDbWJNODVrUXVHelMz'}
+DEBUG:requests_oauthlib.oauth2_session:Request body was grant_type=authorization_code&code=4%2F0AX4XfWg2PgwKM9oT0nK6ujQIJ9dcH7oDYn9KVTUVRKZ7hJeC63AIJ7Bb_s0khHV6hb2ljw&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F
+DEBUG:requests_oauthlib.oauth2_session:Response headers were {'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Date': 'Sun, 19 Jun 2022 00:42:16 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.a0ARrdaM-EbQfZnl9OsKFpwELF1R2gN1jsMAVkJqdDyLfrA2NRmjOTWBwYhmvCGC_1FJS3nAsKPB8ici7srAYq7_dOE-_WhXHrf3Dww17iA7niuKzcEyCb24JUoswngR3YPOAE8iTWnVUvbwAT2lYQiHFIs7yO",
+  "expires_in": 3599,
+  "refresh_token": "1//0fOxnjqsCLyUTCgYIARAAGA8SNwF-L9Ir7yJoNRsOy9m6UpCLNXtVwoSrRcRg31KTTZn-I4tyccOeWB0ebMf7G8bdlELnp6ppJIg",
+  "scope": "https://www.googleapis.com/auth/youtube.force-ssl",
+  "token_type": "Bearer"
+}.
+DEBUG:requests_oauthlib.oauth2_session:Invoking 0 token response hooks.
+DEBUG:requests_oauthlib.oauth2_session:Obtained token {'access_token': 'ya29.a0ARrdaM-EbQfZnl9OsKFpwELF1R2gN1jsMAVkJqdDyLfrA2NRmjOTWBwYhmvCGC_1FJS3nAsKPB8ici7srAYq7_dOE-_WhXHrf3Dww17iA7niuKzcEyCb24JUoswngR3YPOAE8iTWnVUvbwAT2lYQiHFIs7yO', 'expires_in': 3599, 'refresh_token': '1//0fOxnjqsCLyUTCgYIARAAGA8SNwF-L9Ir7yJoNRsOy9m6UpCLNXtVwoSrRcRg31KTTZn-I4tyccOeWB0ebMf7G8bdlELnp6ppJIg', 'scope': ['https://www.googleapis.com/auth/youtube.force-ssl'], 'token_type': 'Bearer', 'expires_at': 1655602935.714421}.
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-06-18T19:43:05.106412-05:001 seconds waited, no error, for request_client_token
+DEBUG:requests_oauthlib.oauth2_session:Generated new state ZCyh3ap1nvKlfemkE0xZg6yQ3L2BEM.
+INFO:google_auth_oauthlib.flow:"GET /?state=ZCyh3ap1nvKlfemkE0xZg6yQ3L2BEM&code=4/0AX4XfWh0siM_0oECGo3nLKQe6irwP05z_2Q5-cOW-QxrIfiCzMHU32gMsu44p2Gq6fk2uA&scope=https://www.googleapis.com/auth/youtube.force-ssl HTTP/1.1" 200 65
+DEBUG:requests_oauthlib.oauth2_session:Encoding `client_id` "845416578463-b27gsmn3ohd9jht15d4nr11fgnsetldk.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+DEBUG:requests_oauthlib.oauth2_session:Requesting url https://oauth2.googleapis.com/token using method POST.
+DEBUG:requests_oauthlib.oauth2_session:Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AX4XfWh0siM_0oECGo3nLKQe6irwP05z_2Q5-cOW-QxrIfiCzMHU32gMsu44p2Gq6fk2uA', 'redirect_uri': 'http://localhost:8080/'}
+DEBUG:requests_oauthlib.oauth2_session:Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x1034f6d30>, 'verify': True, 'proxies': None, 'cert': None}.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:requests_oauthlib.oauth2_session:Request to fetch token completed with status 200.
+DEBUG:requests_oauthlib.oauth2_session:Request url was https://oauth2.googleapis.com/token
+DEBUG:requests_oauthlib.oauth2_session:Request headers were {'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '156', 'Authorization': 'Basic ODQ1NDE2NTc4NDYzLWIyN2dzbW4zb2hkOWpodDE1ZDRucjExZmduc2V0bGRrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1FQWdHbGtpQ2c2azRnRXdDbWJNODVrUXVHelMz'}
+DEBUG:requests_oauthlib.oauth2_session:Request body was grant_type=authorization_code&code=4%2F0AX4XfWh0siM_0oECGo3nLKQe6irwP05z_2Q5-cOW-QxrIfiCzMHU32gMsu44p2Gq6fk2uA&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F
+DEBUG:requests_oauthlib.oauth2_session:Response headers were {'Pragma': 'no-cache', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Date': 'Sun, 19 Jun 2022 00:50:48 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.a0ARrdaM8uKFDzVVKPbM_mTC5NLWsXSLgYe29c47sgZG4q5hPKba2S3gwpcSBn-Knfb3r-Ron3Owyp1AJJV6sJjVo4AIlEVLwwRz3iBXrxeelqVdV3GmVaYOVNajDWRYgWCU4CzSLD_xs2zZfeNWBpuieRnog6",
+  "expires_in": 3599,
+  "refresh_token": "1//0f2QolO9VISc9CgYIARAAGA8SNwF-L9IrW5uMup-diaUNPMImQBePAbhQjp8D-tT8F5FLfqlgD1Kd9QVQZOR98qJGlfD6R3H7Vqc",
+  "scope": "https://www.googleapis.com/auth/youtube.force-ssl",
+  "token_type": "Bearer"
+}.
+DEBUG:requests_oauthlib.oauth2_session:Invoking 0 token response hooks.
+DEBUG:requests_oauthlib.oauth2_session:Obtained token {'access_token': 'ya29.a0ARrdaM8uKFDzVVKPbM_mTC5NLWsXSLgYe29c47sgZG4q5hPKba2S3gwpcSBn-Knfb3r-Ron3Owyp1AJJV6sJjVo4AIlEVLwwRz3iBXrxeelqVdV3GmVaYOVNajDWRYgWCU4CzSLD_xs2zZfeNWBpuieRnog6', 'expires_in': 3599, 'refresh_token': '1//0f2QolO9VISc9CgYIARAAGA8SNwF-L9IrW5uMup-diaUNPMImQBePAbhQjp8D-tT8F5FLfqlgD1Kd9QVQZOR98qJGlfD6R3H7Vqc', 'scope': ['https://www.googleapis.com/auth/youtube.force-ssl'], 'token_type': 'Bearer', 'expires_at': 1655603447.2102451}.
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-06-18T19:51:17.509800-05:001 seconds waited, no error, for request_client_token
+DEBUG:requests_oauthlib.oauth2_session:Generated new state mQq00XtPN6Q4rbmHL55uYiW03NMdKI.
+INFO:google_auth_oauthlib.flow:"GET /?state=mQq00XtPN6Q4rbmHL55uYiW03NMdKI&code=4/0AX4XfWh6q8z9wYoY-WpMJoPopH0uiVgWKy2z8qnvK6DMkN5X_xjB9qrPccoh7JncKDZq6g&scope=https://www.googleapis.com/auth/youtube.force-ssl HTTP/1.1" 200 65
+DEBUG:requests_oauthlib.oauth2_session:Encoding `client_id` "845416578463-b27gsmn3ohd9jht15d4nr11fgnsetldk.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+DEBUG:requests_oauthlib.oauth2_session:Requesting url https://oauth2.googleapis.com/token using method POST.
+DEBUG:requests_oauthlib.oauth2_session:Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AX4XfWh6q8z9wYoY-WpMJoPopH0uiVgWKy2z8qnvK6DMkN5X_xjB9qrPccoh7JncKDZq6g', 'redirect_uri': 'http://localhost:8080/'}
+DEBUG:requests_oauthlib.oauth2_session:Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x104c87c40>, 'verify': True, 'proxies': None, 'cert': None}.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:requests_oauthlib.oauth2_session:Request to fetch token completed with status 200.
+DEBUG:requests_oauthlib.oauth2_session:Request url was https://oauth2.googleapis.com/token
+DEBUG:requests_oauthlib.oauth2_session:Request headers were {'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '156', 'Authorization': 'Basic ODQ1NDE2NTc4NDYzLWIyN2dzbW4zb2hkOWpodDE1ZDRucjExZmduc2V0bGRrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1FQWdHbGtpQ2c2azRnRXdDbWJNODVrUXVHelMz'}
+DEBUG:requests_oauthlib.oauth2_session:Request body was grant_type=authorization_code&code=4%2F0AX4XfWh6q8z9wYoY-WpMJoPopH0uiVgWKy2z8qnvK6DMkN5X_xjB9qrPccoh7JncKDZq6g&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F
+DEBUG:requests_oauthlib.oauth2_session:Response headers were {'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Pragma': 'no-cache', 'Date': 'Sun, 19 Jun 2022 00:51:23 GMT', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.a0ARrdaM-pIE5PJnb-1675vJW2-dFdHytxFWSJRp-4lQR0Sqf60GymfNtr3WNpMtOyKelW88sjOTSwFLp-B1VdXDxJvmzRxp7Viz1tpcMvcBp7ITwR_tmyVBULLl-AM1U4QjVmh5CAnTfa9u7I0dGheQCGVt3u",
+  "expires_in": 3599,
+  "refresh_token": "1//0fnAvUWMlI-IRCgYIARAAGA8SNwF-L9IrXHJlIb6o6yWoBOayKdaPsJWpu-T1cm3kI6mF0QTByVnIaL35zbOISM4aBgJR-we2__A",
+  "scope": "https://www.googleapis.com/auth/youtube.force-ssl",
+  "token_type": "Bearer"
+}.
+DEBUG:requests_oauthlib.oauth2_session:Invoking 0 token response hooks.
+DEBUG:requests_oauthlib.oauth2_session:Obtained token {'access_token': 'ya29.a0ARrdaM-pIE5PJnb-1675vJW2-dFdHytxFWSJRp-4lQR0Sqf60GymfNtr3WNpMtOyKelW88sjOTSwFLp-B1VdXDxJvmzRxp7Viz1tpcMvcBp7ITwR_tmyVBULLl-AM1U4QjVmh5CAnTfa9u7I0dGheQCGVt3u', 'expires_in': 3599, 'refresh_token': '1//0fnAvUWMlI-IRCgYIARAAGA8SNwF-L9IrXHJlIb6o6yWoBOayKdaPsJWpu-T1cm3kI6mF0QTByVnIaL35zbOISM4aBgJR-we2__A', 'scope': ['https://www.googleapis.com/auth/youtube.force-ssl'], 'token_type': 'Bearer', 'expires_at': 1655603482.891705}.
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-06-18T19:55:58.596149-05:001 seconds waited, no error, for request_client_token
+DEBUG:requests_oauthlib.oauth2_session:Generated new state xBcaoQwEQegJ8X8CTPyHMjI2SjQgOW.
+INFO:google_auth_oauthlib.flow:"GET /?state=xBcaoQwEQegJ8X8CTPyHMjI2SjQgOW&code=4/0AX4XfWiZrArdQ8iHuXxvtTfCc71OT9XEKP1E9dMoFQtug4eJU_ffYI30i2dqM7vDLZCKrg&scope=https://www.googleapis.com/auth/youtube.force-ssl HTTP/1.1" 200 65
+DEBUG:requests_oauthlib.oauth2_session:Encoding `client_id` "845416578463-b27gsmn3ohd9jht15d4nr11fgnsetldk.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+DEBUG:requests_oauthlib.oauth2_session:Requesting url https://oauth2.googleapis.com/token using method POST.
+DEBUG:requests_oauthlib.oauth2_session:Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AX4XfWiZrArdQ8iHuXxvtTfCc71OT9XEKP1E9dMoFQtug4eJU_ffYI30i2dqM7vDLZCKrg', 'redirect_uri': 'http://localhost:8080/'}
+DEBUG:requests_oauthlib.oauth2_session:Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x103b061f0>, 'verify': True, 'proxies': None, 'cert': None}.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:requests_oauthlib.oauth2_session:Request to fetch token completed with status 200.
+DEBUG:requests_oauthlib.oauth2_session:Request url was https://oauth2.googleapis.com/token
+DEBUG:requests_oauthlib.oauth2_session:Request headers were {'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '156', 'Authorization': 'Basic ODQ1NDE2NTc4NDYzLWIyN2dzbW4zb2hkOWpodDE1ZDRucjExZmduc2V0bGRrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1FQWdHbGtpQ2c2azRnRXdDbWJNODVrUXVHelMz'}
+DEBUG:requests_oauthlib.oauth2_session:Request body was grant_type=authorization_code&code=4%2F0AX4XfWiZrArdQ8iHuXxvtTfCc71OT9XEKP1E9dMoFQtug4eJU_ffYI30i2dqM7vDLZCKrg&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F
+DEBUG:requests_oauthlib.oauth2_session:Response headers were {'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Date': 'Sun, 19 Jun 2022 00:56:04 GMT', 'Pragma': 'no-cache', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.a0ARrdaM85hOEs4yayp6TjmBeyqOzGLILKfg46NISkPggFeZlIjZa0hJybY5DJl_rVBL5-7R2oXbPu_Ju9koJlepUvXjEqiXoQb2_lIVmvJDJyi0OQ_WzPKDB6DJzwlBURGCI_ULvng_BHFdTvukz3ujbQtV5L",
+  "expires_in": 3599,
+  "refresh_token": "1//0fFgUvf8mGteqCgYIARAAGA8SNwF-L9Ir6yju8PkKBynajHNG2TWqhu3F8_aeIDy0l_NN8-AWeCXyUI_fcInL6tNvuE-1hDuVtmQ",
+  "scope": "https://www.googleapis.com/auth/youtube.force-ssl",
+  "token_type": "Bearer"
+}.
+DEBUG:requests_oauthlib.oauth2_session:Invoking 0 token response hooks.
+DEBUG:requests_oauthlib.oauth2_session:Obtained token {'access_token': 'ya29.a0ARrdaM85hOEs4yayp6TjmBeyqOzGLILKfg46NISkPggFeZlIjZa0hJybY5DJl_rVBL5-7R2oXbPu_Ju9koJlepUvXjEqiXoQb2_lIVmvJDJyi0OQ_WzPKDB6DJzwlBURGCI_ULvng_BHFdTvukz3ujbQtV5L', 'expires_in': 3599, 'refresh_token': '1//0fFgUvf8mGteqCgYIARAAGA8SNwF-L9Ir6yju8PkKBynajHNG2TWqhu3F8_aeIDy0l_NN8-AWeCXyUI_fcInL6tNvuE-1hDuVtmQ', 'scope': ['https://www.googleapis.com/auth/youtube.force-ssl'], 'token_type': 'Bearer', 'expires_at': 1655603763.4134662}.
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0

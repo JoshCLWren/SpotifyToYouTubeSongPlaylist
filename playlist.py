@@ -4,20 +4,23 @@ import os
 import time
 from unicodedata import name
 
+import arrow
 import google_auth_oauthlib.flow
 import googleapiclient.discovery
 import googleapiclient.errors
 from googleapiclient.errors import HttpError
 from tekore import Spotify, request_client_token, scope
+
 from http_requests import handle_request
 from song import Song
-import arrow
 
 
 def _try_song_cache(tune):
     """Tries to get the song from the cache"""
     try:
-        with open(f"song_cache/{tune['artist_name']}/{tune['track_name']}.json", "r") as f:
+        with open(
+            f"song_cache/{tune['artist_name']}/{tune['track_name']}.json", "r"
+        ) as f:
             return json.load(f)
     except Exception as e:
         print(e)
@@ -27,7 +30,9 @@ def _try_song_cache(tune):
 class Playlist:
     """A class with playlist related state properties"""
 
-    def __init__(self, spotify_id, spotify, youtube=None, spotify_playlists=None):
+    def __init__(
+        self, spotify_id, spotify, youtube=None, spotify_playlists=None, quota=None
+    ):
         self.attempts = None
         self.spotify_id = spotify_id
         self.spotify_playlist = spotify.playlist(spotify_id)
@@ -37,21 +42,22 @@ class Playlist:
         self.youtube = youtube
         self.youtube_id = None
         try:
-            self.youtube_playlist_id = self._try_youtube_cache(self.name) or self.create_youtube_playlist(self.name)
+            self.youtube_playlist_id = (
+                self._try_youtube_cache() or self.create_youtube_playlist(quota)
+            )
         except AttributeError:
             self.youtube_playlist_id = None
         self.spotify = spotify
-        self.youtube_playlist_cache = bool(self._try_youtube_cache(self.name))
+        self.youtube_playlist_cache = bool(self._try_youtube_cache())
 
-    @staticmethod
-    def _try_youtube_cache(title):
+    def _try_youtube_cache(self):
         """Tries to get the playlist from the cache"""
         # import pdb; pdb.set_trace()
         if os.path.exists("youtube_playlists_v1.json"):
             with open("youtube_playlists_v1.json", "r") as f:
                 cache = json.load(f)
                 for playlist, _id in cache.items():
-                    if playlist == title:
+                    if playlist == self.name:
                         return _id
         return None
 
@@ -86,13 +92,19 @@ class Playlist:
                 spotify_cache=self.is_spotify_cached,
                 spotify=self.spotify,
             )
-            song.youtube_id = cached_song["video_id"] or song.get_song_youtube(youtube_quota)
+            song.youtube_id = (
+                cached_song.get("video_id")
+                or song.get_song_youtube(youtube_quota)
+                or None
+            )
             if len(cached_song) == 1:
                 song.cache_song()
                 print(f"{tune['track_name']} by {tune['artist_name']} cached")
             else:
                 song.update_song_cache()
-                print(f"cache for {tune['track_name']} by {tune['artist_name']} updated")
+                print(
+                    f"cache for {tune['track_name']} by {tune['artist_name']} updated"
+                )
             # checks if the song is already in the playlist
             if song.youtube_id:
                 self.tracks.append(song.youtube_id)
@@ -121,7 +133,6 @@ class Playlist:
                         if response := handle_request(func=request.execute):
                             youtube_quota.spend(1)
                             youtube_quota.log_success(response, self.name)
-
 
                     except googleapiclient.errors.HttpError as e:
                         print(e)
@@ -158,7 +169,7 @@ class Playlist:
             print(f"{self.name} cached")
             return playlist_to_cache
 
-    def create_youtube_playlist(self, title, quota):
+    def create_youtube_playlist(self, quota):
         """Creates a new playlist in youtube"""
         playlist = None
         if quota.remaining > 0:
@@ -167,7 +178,7 @@ class Playlist:
                 part="snippet,status",
                 body={
                     "snippet": {
-                        "title": title,
+                        "title": self.name,
                         "description": "Created by Spotify to Youtube",
                     },
                     "status": {"privacyStatus": "public"},
@@ -185,7 +196,7 @@ class Playlist:
         try:
             self.youtube_id = playlist["id"]
             self._update_youtube_cache()
-            print(f"{title} created in youtube")
+            print(f"{self.name} created in youtube")
             return playlist["id"]
         except TypeError:
             return self._log_failed_playlist()
@@ -221,10 +232,9 @@ class Playlist:
             with open("youtube_playlists_v1.json", "r") as f:
                 cache = json.load(f)
                 for song in cache["playlists"][self.name]["tracks"]:
-                    if song["track_name"] == tune["track_name"] and song["artist_name"] == tune[
-                        "artist_name"
-                    ]:
+                    if (
+                        song["track_name"] == tune["track_name"]
+                        and song["artist_name"] == tune["artist_name"]
+                    ):
                         return True
         return False
-
-
