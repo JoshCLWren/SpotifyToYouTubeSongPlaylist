@@ -13,9 +13,9 @@ class SpotifySession:
     """The Spotify Session class"""
 
     def __init__(
-            self,
-            spotify_user_id=os.getenv("spotify_user_id", None),
-            spotify_json="client_codes_Spotify.json",
+        self,
+        spotify_user_id=os.getenv("spotify_user_id", None),
+        spotify_json="client_codes_Spotify.json",
     ):
         """initialize User Info"""
 
@@ -33,28 +33,33 @@ class SpotifySession:
         if os.path.exists("spotify_playlist_cache.json"):
             with open("spotify_playlist_cache.json") as f:
                 try:
-                    playlists = json.load(f)
+                    playlists_cache = json.load(f)
                 except Exception:
-                    self.playlists = {}
+                    playlists_cache = {}
                 if (
-                        len(playlists) > 1
-                        and (arrow.get(playlists.get("last_updated")) - arrow.now()).days
-                        < 7
+                    len(playlists_cache) > 1
+                    and (
+                        arrow.get(playlists_cache.get("last_updated")) - arrow.now()
+                    ).days
+                    < 7
                 ):
-                    self.playlists = playlists
+                    self.playlists_cache = playlists_cache
                     self.spotify_playlist_ids = [
                         playlist["id"] for playlist in self.playlists["playlists"]
                     ]
-
         else:
-            self.playlists = self._get_current_spotify()
+            self.playlists_cache = {}
+            self.spotify_playlist_ids = []
 
-    def _get_current_spotify(self):  # sourcery skip: dict-assign-update-to-union
+    @property
+    def playlists(self):
+
+        if len(self.playlists_cache) > 1:
+            return self.playlists_cache
         next_page = True
         limit = 50
         offset = 0
         playlists = {"playlists": []}
-
         while next_page:
             pl = self.spotify.playlists(
                 self.spotify_user_id, limit=limit, offset=offset
@@ -84,7 +89,6 @@ class SpotifySession:
                         "artist_name": song.artist_name,
                         "track_name": song.track_name,
                         "album_name": song.album_name,
-                        "track_id": pl["id"],
                     }
                 )
             pl["tracks"] = tracks
