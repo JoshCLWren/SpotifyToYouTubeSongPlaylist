@@ -1,13 +1,18 @@
+import asyncio
 import json
 import os
+
+from joblib import Parallel, delayed
 
 from playlist import Playlist
 from spotifysession import SpotifySession
 from youtube_playlist import YoutubePlaylists
-from youtube_request import Quota, YouTubeAuthSession, YouTubeRequest
+from youtube_request import Quota, YouTubeAuthSession
+
+loop = asyncio.get_event_loop()
 
 
-def __main__():
+async def __main__():
     """Main function"""
     if not os.path.exists("./song_cache"):
         os.mkdir("./song_cache")
@@ -15,35 +20,40 @@ def __main__():
         os.mkdir("./playlist_cache")
 
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+    import pdb
 
+    pdb.set_trace()
     user = SpotifySession()
-
-    youtube_playlists = YoutubePlaylists(youtube_session=None)
+    await user.setup_cache()
     youtube_quota = Quota()
     quota_remaining = youtube_quota.check()
     print(f"Quota remaining: {quota_remaining}")
     if quota_remaining == 0:
         print("Quota is 0. Exiting")
         return
+
     youtube_auth_session = YouTubeAuthSession()
-    youtube_request = YouTubeRequest(
-        quota=youtube_quota, auth_session=youtube_auth_session
+
+    await asyncio.gather(
+        *[
+            process_playlist(user, youtube_auth_session, youtube_quota, playlist_id)
+            for playlist_id in user.spotify_playlist_ids
+        ]
     )
-    for playlist_count, spotify_playlist_id in enumerate(
-        user.spotify_playlist_ids, start=1
-    ):
-        print(
-            f"Processing playlist {playlist_count} of {len(user.spotify_playlist_ids)}"
-        )
-        playlist = Playlist(
-            spotify_playlist_id,
-            user.spotify,
-            youtube=youtube_auth_session,
-            spotify_playlists=user.playlists,
-            quota=youtube_quota,
-        )
-        playlist.place_songs_in_playlist(youtube_quota)
+
+
+async def process_playlist(
+    user, youtube_auth_session, youtube_quota, spotify_playlist_id
+):
+    playlist = Playlist(
+        spotify_playlist_id,
+        user.spotify,
+        youtube_request=youtube_auth_session,
+        spotify_playlists=await user.playlists,
+        quota=youtube_quota,
+    )
+    await playlist.place_songs_in_playlist(youtube_quota)
 
 
 if __name__ == "__main__":
-    __main__()
+    loop.run_until_complete(__main__())

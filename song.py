@@ -2,7 +2,9 @@ import contextlib
 import json
 import os
 
+import aiofiles
 import arrow
+import googleapiclient.discovery
 
 from http_requests import handle_request
 
@@ -16,8 +18,8 @@ class Song:
         spotify_cache=False,
         spotify_playlist_id=None,
         playlist_id_youtube=None,
-        youtube=None,
         spotify=None,
+        youtube_request=None,
     ):
         """initializer doc string"""
         if not spotify_cache:
@@ -40,12 +42,12 @@ class Song:
             self.album_release_date = None
         self.spotify_playlist_id = spotify_playlist_id
         self.playlist_id_youtube = playlist_id_youtube
-        self.youtube = youtube
         self.spotify = spotify
         self.full_name = f"{self.track_name} - {self.artist_name}".replace("/", "")
+        self.youtube_request = youtube_request
         self.youtube_id = None
 
-    def get_songs_spotify(self):
+    async def get_songs_spotify(self):
         """Gets the songs from a spotify playlist"""
         playlist = self.spotify.playlist_items(self.spotify_playlist_id, as_tracks=True)
         print(playlist)
@@ -77,10 +79,10 @@ class Song:
             artist = track.artists
             artist = artist[0]
             print(f"{track.name} by {artist.name}")
-            self.get_song_youtube(youtube_quota=None)
+            await self.get_song_youtube(youtube_quota=None)
 
     # Searches the name of the song by the artist and get the first video on the lists id
-    def get_song_youtube(self, youtube_quota):
+    async def get_song_youtube(self, youtube_quota):
         """Gets the song from youtube"""
         if youtube_id := self.check_cache():
             return youtube_id
@@ -95,20 +97,22 @@ class Song:
                 "Budget exceeded, please try again later. Can't get song from youtube"
             )
             return None
-        request = handle_request(
-            func=self.youtube.search().list,
+
+        request = await handle_request(
+            func=self.youtube_request.discovery.search().list,
             part="snippet",
             maxResults=1,
             q=f"({self.full_name}) ({self.album_name})",
         )
+        # dig into this request as the id is in the search results
         try:
-            return self._handle_response(request, youtube_quota)
+            return await self._handle_response(request, youtube_quota)
         except Exception as e:
             print(e)
             return None
 
-    def _handle_response(self, request, youtube_quota):
-        response = handle_request(func=request.execute)
+    async def _handle_response(self, request, youtube_quota):
+        response = await handle_request(func=request.execute)
         youtube_quota.spend(1)
         youtube_quota.log_success(response, self.full_name)
         response = response.get("items")
@@ -116,7 +120,7 @@ class Song:
         response = response.get("id")
         return response.get("videoId")
 
-    def cache_song(self):
+    async def cache_song(self):
         """Caches the song"""
         # import pdb; pdb.set_trace()
         song_to_cache = {
@@ -138,7 +142,7 @@ class Song:
         path += f"/{self.track_name}.json"
         path.replace("/", "")
         if not os.path.exists(path):
-            with open(
+            async with aiofiles.open(
                 f"./song_cache/{self.artist_name}/{self.track_name}.json", "w"
             ) as f:
 
@@ -146,7 +150,7 @@ class Song:
                 return song_to_cache
         else:
             # read cache and check if song is already in cache
-            with open(
+            async with aiofiles.open(
                 f"./song_cache/{self.artist_name}/{self.track_name}.json", "r"
             ) as f:
                 cache = json.load(f)
@@ -154,10 +158,10 @@ class Song:
                     print(f"{self.full_name} is already in cache")
                     return cache
 
-    def check_cache(self):
+    async def check_cache(self):
         """Checks if the song is in the cache"""
         if os.path.exists(f"./song_cache/{self.artist_name}/{self.track_name}.json"):
-            with open(
+            async with aiofiles.open(
                 f"./song_cache/{self.artist_name}/{self.track_name}.json", "r"
             ) as f:
                 cache = json.load(f)
@@ -167,7 +171,7 @@ class Song:
 
         return False
 
-    def update_song_cache(self):
+    async def update_song_cache(self):
         """Updates the song cache"""
         song_to_cache = {
             "artist_name": self.artist_name,
@@ -186,7 +190,7 @@ class Song:
             os.mkdir(f"./song_cache/{self.artist_name}")
         path += f"/{self.track_name}.json"
         if not os.path.exists(path):
-            with open(
+            async with aiofiles.open(
                 f"./song_cache/{self.artist_name}/{self.track_name}.json", "w"
             ) as f:
 
@@ -194,15 +198,15 @@ class Song:
                 return song_to_cache
         else:
             # read cache and check if song is already in cache
-            with open(
+            async with aiofiles.open(
                 f"./song_cache/{self.artist_name}/{self.track_name}.json", "r"
             ) as f:
                 cache = json.load(f)
-                if cache["video_id"] == self.youtube_id:
+                if cache.get("video_id") == self.youtube_id:
                     print(f"{self.full_name} is already in cache")
                     return cache
                 else:
-                    with open(
+                    async with aiofiles.open(
                         f"./song_cache/{self.artist_name}/{self.track_name}.json", "w"
                     ) as f:
                         json.dump(song_to_cache, f)

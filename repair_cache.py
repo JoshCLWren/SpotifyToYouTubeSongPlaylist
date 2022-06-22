@@ -107,12 +107,16 @@ def correct_and_find_song_ids():
                         f"***No*** video id found for {song_cache['artist_name']} {song_cache['track_name']}"
                     )
                     continue
+
                 print(
                     f"<<<<Video id>>>> found for {song_cache['artist_name']} {song_cache['track_name']}, adding that to temp cache"
                 )
                 if song_cache.get("video_id") or "None" not in song_cache.get(
                     "youtube_url"
                 ):
+                    import pdb
+
+                    pdb.set_trace()
                     songs_with_new_ids.append(song_cache)
 
     with open("combined_playlists_cache.json", "r") as f:
@@ -191,21 +195,25 @@ def correct_and_find_song_ids():
         json.dump(playlist_cache, f)
 
 
+def menu():
+    selection = input(
+        "Press 1 to fix the keys of the youtube cache\n"
+        "Press 2 to combine the spotify and youtube cache\n"
+        "Press 3 to correct and or find ids for songs\n"
+        "Press Q to quit "
+    )
+    if selection == "1":
+        fix_keys_of_youtube_cache()
+    elif selection == "2":
+        combine_spotify_and_youtube_cache()
+    elif selection == "3":
+        correct_and_find_song_ids()
+    elif selection.upper() == "Q":
+        exit()
+    else:
+        print("Invalid selection")
+
+
 if __name__ == "__main__":
     while True:
-        selection = input(
-            "Press 1 to fix the keys of the youtube cache\n"
-            "Press 2 to combine the spotify and youtube cache\n"
-            "Press 3 to correct and or find ids for songs\n"
-            "Press Q to quit "
-        )
-        if selection == "1":
-            fix_keys_of_youtube_cache()
-        elif selection == "2":
-            combine_spotify_and_youtube_cache()
-        elif selection == "3":
-            correct_and_find_song_ids()
-        elif selection.upper() == "Q":
-            exit()
-        else:
-            print("Invalid selection")
+        menu()

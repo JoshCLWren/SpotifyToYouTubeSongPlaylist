@@ -3,6 +3,7 @@
 import json
 import os
 
+import aiofiles
 import arrow
 import google_auth_oauthlib.flow
 import googleapiclient.discovery
@@ -25,7 +26,7 @@ class Quota:
         self.failed_requests = 0
         self.total_requests = self.successful_requests + self.failed_requests
 
-    def spend(self, amount):
+    async def spend(self, amount):
         """Uses the quota"""
         self.remaining -= amount
         return self.remaining
@@ -34,62 +35,68 @@ class Quota:
         """Gets the quota"""
         return self.remaining
 
-    def reset(self):
+    async def reset(self):
         """Resets the quota"""
         self.remaining = self.daily_quota
         return self.remaining
 
-    def budget(self, amount):
+    async def budget(self, amount):
         """Budget the quota"""
         return self.remaining >= amount
 
-    def log_success(self, response, obj):
+    async def log_success(self, response, obj):
         """Logs a successful request"""
-        if os.path.exists("./quota_log.json"):
-            with open("./quota_log.json", "r") as f:
-                cache = json.load(f)
-        else:
-            os.mkdir("./quota_log.json")
-            with open("./quota_log.json", "w") as f:
-                cache = {}
-        cache[arrow.now()] = {
-            "request": response,
-            "obj": obj,
-            "success": True,
-            "quota": self.remaining,
-            "total": self.total_requests,
-        }
-        with open("./quota_log.json", "w") as f:
+
+        if not os.path.exists("quota_log.json"):
+            async with aiofiles.open("quota_log.json", "w") as f:
+                json.dump({"data": []}, f)
+        async with aiofiles.open("quota_log.json", "r") as f:
+            cache = json.load(f)
+
+        cache["data"].append(
+            {
+                f"{arrow.now()}": {
+                    "request": response,
+                    "obj": obj,
+                    "success": True,
+                    "quota": self.remaining,
+                    "total": self.total_requests,
+                }
+            }
+        )
+
+        async with aiofiles.open("./quota_log.json", "w") as f:
             json.dump(cache, f)
         self.successful_requests += 1
         self.total_requests += 1
 
 
-class YouTubeRequest:
-    """A class with YouTube request related state properties"""
-
-    def __init__(self, quota, youtubeauth_session):
-        self.quota = quota
-        self.base_url = "https://www.googleapis.com/youtube/v3/"
-        self.api_key = os.environ.get("YOUTUBE_API_KEY")
-        self.headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {self.api_key}",
-        }
-        self.session = youtubeauth_session
-
-    def execute(self, endpoint, **kwargs):
-        """Executes a request"""
-        if self.quota.budget(1):
-            self.quota.spend(1)
-            return self.request(endpoint, **kwargs)
-        else:
-            return None
-
-    def request(self, endpoint, **kwargs):
-        """Makes a request"""
-        url = f"{self.base_url}{endpoint}"
-        return requests.request("GET", url, headers=self.headers, **kwargs)
+#
+# class YouTubeRequest:
+#     """A class with YouTube request related state properties"""
+#
+#     def __init__(self, quota, youtubeauth_session):
+#         self.quota = quota
+#         self.base_url = "https://www.googleapis.com/youtube/v3/"
+#         self.api_key = os.environ.get("YOUTUBE_API_KEY")
+#         self.headers = {
+#             "Content-Type": "application/json",
+#             "Authorization": f"Bearer {self.api_key}",
+#         }
+#         self.session = youtubeauth_session
+#
+#     def execute(self, endpoint, **kwargs):
+#         """Executes a request"""
+#         if self.quota.budget(1):
+#             self.quota.spend(1)
+#             return self.request(endpoint, **kwargs)
+#         else:
+#             return None
+#
+#     def request(self):
+#         return googleapiclient.discovery.build(
+#             "youtube", "v3", credentials=self.session
+#         )
 
 
 class YouTubeAuthSession:
@@ -101,7 +108,10 @@ class YouTubeAuthSession:
         self.api_service_name = "youtube"
         self.api_version = "v3"
         self.client_secrets_file = "client_secret_YouTube.json"
-        self.youtube = self.new()
+        self.credentials = self.new()
+        self.discovery = googleapiclient.discovery.build(
+            "youtube", "v3", credentials=self.credentials
+        )
 
     def new(self):
         """initialize and authenticate with Youtube"""
@@ -120,6 +130,4 @@ class YouTubeAuthSession:
 
             credentials = flow.run_local_server(port=port)
 
-        return googleapiclient.discovery.build(
-            self.api_service_name, self.api_version, credentials=credentials
-        )
+        return credentials
