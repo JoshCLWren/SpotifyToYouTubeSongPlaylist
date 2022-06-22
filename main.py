@@ -23,8 +23,8 @@ async def __main__():
     import pdb
 
     pdb.set_trace()
-    user = SpotifySession()
-    await user.setup_cache()
+    spotify_session = SpotifySession()
+    spotify_session.setup_cache()
     youtube_quota = Quota()
     quota_remaining = youtube_quota.check()
     print(f"Quota remaining: {quota_remaining}")
@@ -36,20 +36,25 @@ async def __main__():
 
     await asyncio.gather(
         *[
-            process_playlist(user, youtube_auth_session, youtube_quota, playlist_id)
-            for playlist_id in user.spotify_playlist_ids
+            process_playlist(
+                youtube_auth_session=youtube_auth_session,
+                youtube_quota=youtube_quota,
+                spotify_playlist_id=playlist_id,
+                user=spotify_session,
+            )
+            for playlist_id in spotify_session.spotify_playlist_ids
         ]
     )
 
 
 async def process_playlist(
-    user, youtube_auth_session, youtube_quota, spotify_playlist_id
+    *, user, youtube_auth_session, youtube_quota, spotify_playlist_id
 ):
     playlist = Playlist(
         spotify_playlist_id,
-        user.spotify,
+        user.spotify_request,
         youtube_request=youtube_auth_session,
-        spotify_playlists=await user.playlists,
+        spotify_playlists=user.playlists,
         quota=youtube_quota,
     )
     await playlist.place_songs_in_playlist(youtube_quota)

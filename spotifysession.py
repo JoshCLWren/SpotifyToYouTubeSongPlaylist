@@ -1,7 +1,6 @@
 import json
 import os
 
-import aiofiles
 import arrow
 from tekore import Spotify, request_client_token
 
@@ -23,13 +22,13 @@ class SpotifySession:
         self.spotify_json = spotify_json
         self.playlists_cache = {}
         self.spotify_playlist_ids = []
+        self.playlists_cache, self.spotify_playlist_ids = self.setup_cache()
 
-    async def setup_cache(self):
+    def setup_cache(self):
         if os.path.exists("spotify_playlist_cache.json"):
-            async with aiofiles.open("spotify_playlist_cache.json") as f:
+            with open("spotify_playlist_cache.json") as f:
                 try:
-                    playlists_cache = await f.read()
-                    playlists_cache = json.loads(playlists_cache)
+                    playlists_cache = json.load(f)
                 except Exception:
                     playlists_cache = {}
                 if (
@@ -39,17 +38,17 @@ class SpotifySession:
                     ).days
                     < 7
                 ):
-                    self.playlists_cache = playlists_cache
-                    self.spotify_playlist_ids = [
-                        playlist["id"] for playlist in self.playlists_cache["playlists"]
+                    spotify_playlist_ids = [
+                        playlist["id"] for playlist in playlists_cache["playlists"]
                     ]
         else:
-            self.playlists_cache = {}
-            self.spotify_playlist_ids = []
+            playlists_cache = {}
+            spotify_playlist_ids = []
+        return playlists_cache, spotify_playlist_ids
 
     @property
-    async def spotify(self):
-        async with aiofiles.open("client_codes_Spotify.json") as f:
+    async def spotify_request(self):
+        with open("client_codes_Spotify.json") as f:
             client_codes = json.load(f)
         request = await handle_request(
             func=request_client_token,
@@ -59,34 +58,34 @@ class SpotifySession:
         return Spotify(request)
 
     @property
-    async def playlists(self):
+    def playlists(self):
 
         if len(self.playlists_cache) > 1:
             return self.playlists_cache
         next_page = True
         limit = 50
         offset = 0
-        playlists = {"playlists": []}
+        playlists_dict = {"playlists": []}
         while next_page:
             pl = Spotify.playlists(self.spotify_user_id, limit=limit, offset=offset)
             pl_json = json.loads(pl.json())
 
             if pl.offset + limit >= pl.total:
                 next_page = False
-            playlists["playlists"].extend(pl_json["items"])
+            playlists_dict["playlists"].extend(pl_json["items"])
             offset += limit
         self.spotify_playlist_ids = [
-            playlist["id"] for playlist in playlists["playlists"]
+            playlist["id"] for playlist in playlists_dict["playlists"]
         ]
 
-        for pl in playlists["playlists"]:
+        for pl in playlists_dict["playlists"]:
             tracks = []
-            playlist = Playlist(spotify_id=pl["id"], spotify=self.spotify)
+            playlist = Playlist(spotify_id=pl["id"], spotify=self.spotify_request)
 
             for tune in playlist.tracks:
                 song = Song(
                     spotify_playlist_id=pl["id"],
-                    spotify=self.spotify,
+                    spotify=self.spotify_request,
                     spotify_meta_data=tune,
                 )
                 tracks.append(
@@ -98,7 +97,7 @@ class SpotifySession:
                 )
             pl["tracks"] = tracks
 
-        async with aiofiles.open("spotify_playlist_cache.json", "w") as f:
-            playlists["last_updated"] = arrow.now().isoformat()
-            json.dump(playlists, f)
-        return playlists
+        with open("spotify_playlist_cache.json", "w") as f:
+            playlists_dict["last_updated"] = arrow.now().isoformat()
+            json.dump(playlists_dict, f)
+        return playlists_dict
