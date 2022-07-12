@@ -1181,3 +1181,348 @@ Traceback (most recent call last):
   File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/http.py", line 938, in execute
     raise HttpError(resp, content, uri=self.uri)
 googleapiclient.errors.HttpError: <HttpError 429 when requesting https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json returned "Resource has been exhausted (e.g. check quota).". Details: "[{'domain': 'youtube.api.v3.PlaylistInsertResponse.Error', 'reason': 'RATE_LIMIT_EXCEEDED'}]">
+DEBUG:requests_oauthlib.oauth2_session:Generated new state ZfOc5xK53mseMuz439zxbMS9TpQu5G.
+INFO:google_auth_oauthlib.flow:"GET /?state=ZfOc5xK53mseMuz439zxbMS9TpQu5G&code=4/0AdQt8qhxer6aTMhe4PDMVvJzTVr4DXHbQiRjF7GHa44wUVIA09hUCFY3qsm6HVZApBmX1Q&scope=https://www.googleapis.com/auth/youtube.force-ssl HTTP/1.1" 200 65
+DEBUG:requests_oauthlib.oauth2_session:Encoding `client_id` "845416578463-b27gsmn3ohd9jht15d4nr11fgnsetldk.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+DEBUG:requests_oauthlib.oauth2_session:Requesting url https://oauth2.googleapis.com/token using method POST.
+DEBUG:requests_oauthlib.oauth2_session:Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AdQt8qhxer6aTMhe4PDMVvJzTVr4DXHbQiRjF7GHa44wUVIA09hUCFY3qsm6HVZApBmX1Q', 'redirect_uri': 'http://localhost:8080/'}
+DEBUG:requests_oauthlib.oauth2_session:Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x104c12760>, 'verify': True, 'proxies': None, 'cert': None}.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:requests_oauthlib.oauth2_session:Request to fetch token completed with status 200.
+DEBUG:requests_oauthlib.oauth2_session:Request url was https://oauth2.googleapis.com/token
+DEBUG:requests_oauthlib.oauth2_session:Request headers were {'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '156', 'Authorization': 'Basic ODQ1NDE2NTc4NDYzLWIyN2dzbW4zb2hkOWpodDE1ZDRucjExZmduc2V0bGRrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1FQWdHbGtpQ2c2azRnRXdDbWJNODVrUXVHelMz'}
+DEBUG:requests_oauthlib.oauth2_session:Request body was grant_type=authorization_code&code=4%2F0AdQt8qhxer6aTMhe4PDMVvJzTVr4DXHbQiRjF7GHa44wUVIA09hUCFY3qsm6HVZApBmX1Q&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F
+DEBUG:requests_oauthlib.oauth2_session:Response headers were {'Pragma': 'no-cache', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Date': 'Tue, 12 Jul 2022 01:28:46 GMT', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.A0AVA9y1t0Y3c-Ub4isC_rJ6RqLXNUO--4NY7BNyV1l3yQKqjdrUjXb5VPE3sktXzRWvz3e7t2Bn7KuSsjIE3ZDz9QS9RpNBIM3LUjdq6pNLQZzFq83RkKtqhzhBTSTdV_-FouYFhKHTdaDDtO1TyKlVwSvvtPYUNnWUtBVEFTQVRBU0ZRRTY1ZHI4bXFfeTBzUWd5Yk1MbmJjeEtTOGFodw0163",
+  "expires_in": 3599,
+  "refresh_token": "1//0fpsgx45OpFOLCgYIARAAGA8SNwF-L9Irm2tfkWWh3MksM5A4S9oS4vnOwXDXcrHy3P6GXThCmTJGSWrnkjI8fBz27A-E7g12yMc",
+  "scope": "https://www.googleapis.com/auth/youtube.force-ssl",
+  "token_type": "Bearer"
+}.
+DEBUG:requests_oauthlib.oauth2_session:Invoking 0 token response hooks.
+DEBUG:requests_oauthlib.oauth2_session:Obtained token {'access_token': 'ya29.A0AVA9y1t0Y3c-Ub4isC_rJ6RqLXNUO--4NY7BNyV1l3yQKqjdrUjXb5VPE3sktXzRWvz3e7t2Bn7KuSsjIE3ZDz9QS9RpNBIM3LUjdq6pNLQZzFq83RkKtqhzhBTSTdV_-FouYFhKHTdaDDtO1TyKlVwSvvtPYUNnWUtBVEFTQVRBU0ZRRTY1ZHI4bXFfeTBzUWd5Yk1MbmJjeEtTOGFodw0163', 'expires_in': 3599, 'refresh_token': '1//0fpsgx45OpFOLCgYIARAAGA8SNwF-L9Irm2tfkWWh3MksM5A4S9oS4vnOwXDXcrHy3P6GXThCmTJGSWrnkjI8fBz27A-E7g12yMc', 'scope': ['https://www.googleapis.com/auth/youtube.force-ssl'], 'token_type': 'Bearer', 'expires_at': 1657592925.9100852}.
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:28:48.257555-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhA0fn8dYCudsYYu01LU7ZESipJwb8ACg&alt=json
+WARNING:root:2022-07-11T20:28:49.740563-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:29:03.087402-05:001 seconds waited, no error, for execute
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:40:22.117592-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhA0fn8dYCudsYYu01LU7ZESipJwb8ACg&alt=json
+WARNING:root:2022-07-11T20:40:23.789595-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:40:25.061010-05:001 seconds waited, no error, for execute
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:40:38.506347-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhA0fn8dYCudsYYu01LU7ZESipJwb8ACg&alt=json
+WARNING:root:2022-07-11T20:40:40.212625-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:40:41.394910-05:001 seconds waited, no error, for execute
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:41:48.653607-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhA0fn8dYCudsYYu01LU7ZESipJwb8ACg&alt=json
+WARNING:root:2022-07-11T20:41:50.161568-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:41:51.327745-05:001 seconds waited, no error, for execute
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:42:20.987297-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhA0fn8dYCudsYYu01LU7ZESipJwb8ACg&alt=json
+WARNING:root:2022-07-11T20:42:22.409837-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:42:23.572889-05:001 seconds waited, no error, for execute
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:44:00.013907-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhA0fn8dYCudsYYu01LU7ZESipJwb8ACg&alt=json
+WARNING:root:2022-07-11T20:44:01.522117-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:44:02.750277-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Suit+And+Jacket+-+Judah+%26+the+Lion%29+%28Folk+Hop+N%27+Roll+%28Deluxe%29%29&alt=json
+WARNING:root:2022-07-11T20:44:03.763018-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:44:05.122941-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28This+Year+-+The+Mountain+Goats%29+%28The+Sunset+Tree%29&alt=json
+WARNING:root:2022-07-11T20:44:06.188055-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:44:07.855352-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Cupid%27s+Chokehold++Breakfast+in+America+-+Gym+Class+Heroes%29+%28The+Papercut+Chronicles%29&alt=json
+WARNING:root:2022-07-11T20:44:08.890888-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:44:10.415332-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Stereo+-+Pavement%29+%28Brighten+the+Corners%3A+Nicene+Creedence+Ed.%29&alt=json
+WARNING:root:2022-07-11T20:44:11.448555-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:44:13.068911-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28All+Gummed+Up++All+Warmed+Up+%28feat.+Jeremy+Shada+%26+John+DiMaggio%29+-+Adventure+Time+featuring+Jeremy+Shada%29+%28Adventure+Time%2C+Vol.+2+%28Original+Soundtrack%29%29&alt=json
+WARNING:root:2022-07-11T20:44:14.130341-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:44:15.722251-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:44:16.889501-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4sbWEPjoU8Q1TJwGjyN5Mw?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhA0fn8dYCueus8gsoNnmLKWdPfvWgCVw&alt=json
+WARNING:root:2022-07-11T20:44:18.096829-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:44:19.197305-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:44:20.498265-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/3NFrckOdEBHXb1OBRyHnCX?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:44:21.706749-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:44:24.895160-05:00 3 seconds waited, error, for execute, trying again in 2 seconds 
+Traceback (most recent call last):
+  File "/Users/joshwren/Code/playground/test/SpotifyToYouTubeSongPlaylist/http_requests.py", line 21, in handle_request
+    call = func(**kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 429 when requesting https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json returned "Resource has been exhausted (e.g. check quota).". Details: "[{'domain': 'youtube.api.v3.PlaylistInsertResponse.Error', 'reason': 'RATE_LIMIT_EXCEEDED'}]">
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:44:28.136450-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/0htIEClWTKSaqvkGoph2lD?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhA0fn8dYCufsAwoxuDeKPxvQpeni1x77&alt=json
+WARNING:root:2022-07-11T20:44:29.447350-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:44:30.526961-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:44:31.663880-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/15m7yN9ollJAQYSb7c62ca?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:44:33.083721-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Rye+Whiskey++Time+to+Switch+to+Whiskey+-+Corb+Lund%29+%28Losin%27+Lately+Gambler%29&alt=json
+WARNING:root:2022-07-11T20:44:35.162718-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:44:37.423204-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/3Xqwp229y11VgMbRvIkAY1?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhA0fn8dYCudhLFa6cS6vJBh1HzAKQvHo&alt=json
+WARNING:root:2022-07-11T20:44:38.753154-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:45:35.569811-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhA0fn8dYCudsYYu01LU7ZESipJwb8ACg&alt=json
+WARNING:root:2022-07-11T20:45:36.936393-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Suit+And+Jacket+-+Judah+%26+the+Lion%29+%28Folk+Hop+N%27+Roll+%28Deluxe%29%29&alt=json
+WARNING:root:2022-07-11T20:45:39.097306-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28This+Year+-+The+Mountain+Goats%29+%28The+Sunset+Tree%29&alt=json
+WARNING:root:2022-07-11T20:45:41.249985-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Cupid%27s+Chokehold++Breakfast+in+America+-+Gym+Class+Heroes%29+%28The+Papercut+Chronicles%29&alt=json
+WARNING:root:2022-07-11T20:45:43.343044-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Stereo+-+Pavement%29+%28Brighten+the+Corners%3A+Nicene+Creedence+Ed.%29&alt=json
+WARNING:root:2022-07-11T20:45:45.472999-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28All+Gummed+Up++All+Warmed+Up+%28feat.+Jeremy+Shada+%26+John+DiMaggio%29+-+Adventure+Time+featuring+Jeremy+Shada%29+%28Adventure+Time%2C+Vol.+2+%28Original+Soundtrack%29%29&alt=json
+WARNING:root:2022-07-11T20:45:47.572676-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:45:49.806589-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4sbWEPjoU8Q1TJwGjyN5Mw?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhA0fn8dYCueus8gsoNnmLKWdPfvWgCVw&alt=json
+WARNING:root:2022-07-11T20:45:52.064086-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:45:54.284835-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/3NFrckOdEBHXb1OBRyHnCX?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:45:55.780301-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:45:58.055030-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/0htIEClWTKSaqvkGoph2lD?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhA0fn8dYCufsAwoxuDeKPxvQpeni1x77&alt=json
+WARNING:root:2022-07-11T20:45:59.600708-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:46:00.726574-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:46:01.873876-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/15m7yN9ollJAQYSb7c62ca?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:46:03.254027-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Rye+Whiskey++Time+to+Switch+to+Whiskey+-+Corb+Lund%29+%28Losin%27+Lately+Gambler%29&alt=json
+WARNING:root:2022-07-11T20:46:05.341045-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:46:07.609210-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/3Xqwp229y11VgMbRvIkAY1?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhA0fn8dYCudhLFa6cS6vJBh1HzAKQvHo&alt=json
+WARNING:root:2022-07-11T20:46:08.897141-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:46:09.977526-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:46:11.109078-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/1JXldWJ2lrH7MioYwwshud?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhA0fn8dYCudb9jKraaQy2tvdqsd1zYid&alt=json
+WARNING:root:2022-07-11T20:46:12.558153-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:46:13.705031-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:46:14.890210-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/6pKSvsRHnmsU1AWddtrhwi?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhA0fn8dYCuclYMkYSZzpgFOJ7wPpQ4_V&alt=json
+WARNING:root:2022-07-11T20:46:16.369010-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28El+Paso+-+Marty+Robbins%29+%28Gunfighter+Ballads+And+Trail+Songs%29&alt=json
+WARNING:root:2022-07-11T20:46:18.419332-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Cool+Water+-+Marty+Robbins%29+%28Gunfighter+Ballads+And+Trail+Songs%29&alt=json
+WARNING:root:2022-07-11T20:46:20.541587-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:46:22.826294-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/5dIgW8OgNmFbqf2nEIiBns?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:46:24.086190-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:46:26.435689-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/43bFWFVj3jKPpyNdF48tat?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:46:27.826114-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Into+the+Mystic+-+2013+Remaster+-+Van+Morrison%29+%28Moondance%29&alt=json
+WARNING:root:2022-07-11T20:46:29.912073-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:46:32.152325-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/3KWH8XoVHKcevBume3tpT4?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:46:33.523505-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:46:35.814827-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/5mhN7B4KVELBIJ7v9q7EK5?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:46:37.347351-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:46:39.623019-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/39OliJb9RKvvg0I51ZF5qL?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:46:40.961234-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:46:43.205703-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/71tLpg4DbR2pyLSLJN9Rpw?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:46:44.428934-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:46:46.772603-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/5cnWfF0P2d8Xi8BXFhYxif?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhA0fn8dYCucWKtUusMwovgPpORAmIKkX&alt=json
+WARNING:root:2022-07-11T20:46:48.230756-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:46:49.355779-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:46:50.537289-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/5B7cAIw0h9ArTLhMGGOWAw?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:46:51.878322-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Major+Tom+-+Coming+Home+-+Peter+Schilling%29+%28The+Different+Story+%28World+Of+Lust+And+Crime%29%29&alt=json
+WARNING:root:2022-07-11T20:46:53.952494-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Space+Song+-+Beach+House%29+%28Depression+Cherry%29&alt=json
+WARNING:root:2022-07-11T20:46:56.049583-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:46:58.268923-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/5hGIFQX8xKCJlblMro7Mtf?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:46:59.476761-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:47:01.666380-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/1ViunanVXTaLu0qVqAPRxY?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:47:03.145551-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:47:05.482739-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/7KtYFQjkaTGTchRJjQvbQh?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:47:07.150609-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Whatta+Man+%28feat.+En+Vogue%29+-+EP+Version+-+Salt-N-Pepa+featuring+En+Vogue%29+%28Runaway+Love%29&alt=json
+WARNING:root:2022-07-11T20:47:09.260586-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28My+Lovin%27+%28You%27re+Never+Gonna+Get+It%29+-+En+Vogue%29+%28Funky+Divas%29&alt=json
+WARNING:root:2022-07-11T20:47:11.364729-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Free+Your+Mind+-+En+Vogue%29+%28Funky+Divas%29&alt=json
+WARNING:root:2022-07-11T20:47:13.442543-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Shoop+-+Salt-N-Pepa%29+%28Very+Necessary%29&alt=json
+WARNING:root:2022-07-11T20:47:15.569987-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Water+Runs+Dry+-+Boyz+II+Men%29+%28II%29&alt=json
+WARNING:root:2022-07-11T20:47:17.650751-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:47:19.930506-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/2IXnz2uXLcdLVk50CC4aac?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:47:21.379156-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Grandma%27s+Hands+-+Bill+Withers%29+%28Just+As+I+Am%29&alt=json
+WARNING:root:2022-07-11T20:47:23.478247-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28I%27ll+Take+You+There+-+The+Staple+Singers%29+%28The+Very+Best+Of+The+Staple+Singers%29&alt=json
+WARNING:root:2022-07-11T20:47:25.561739-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Try+a+Little+Tenderness+-+Otis+Redding%29+%28Complete+%26+Unbelievable%3A+The+Otis+Redding+Dictionary+of+Soul%29&alt=json
+WARNING:root:2022-07-11T20:47:27.644239-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:47:29.878792-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/0dcnS6khwtYqqBAkNG92hP?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:47:31.827310-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Big+Pimpin%27+-+JAY-Z+featuring+UGK%29+%28The+Hits+Collection+Volume+One+%5BDeluxe+Edition+%28Explicit%29%5D%29&alt=json
+WARNING:root:2022-07-11T20:47:33.880506-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Roc+Boys+%28And+The+Winner+Is%29...+-+JAY-Z%29+%28The+Hits+Collection+Volume+One+%5BDeluxe+Edition+%28Explicit%29%5D%29&alt=json
+WARNING:root:2022-07-11T20:47:35.970947-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Dirt+Off+Your+Shoulder+-+JAY-Z%29+%28The+Hits+Collection+Volume+One+%5BDeluxe+Edition+%28Explicit%29%5D%29&alt=json
+WARNING:root:2022-07-11T20:47:38.074227-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Empire+State+Of+Mind+-+JAY-Z+featuring+Alicia+Keys%29+%28The+Hits+Collection+Volume+One+%5BDeluxe+Edition+%28Explicit%29%5D%29&alt=json
+WARNING:root:2022-07-11T20:47:40.206199-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%2899+Problems+-+JAY-Z%29+%28The+Hits+Collection+Volume+One+%5BDeluxe+Edition+%28Explicit%29%5D%29&alt=json
+WARNING:root:2022-07-11T20:47:42.286665-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Izzo+%28H.O.V.A.%29+-+JAY-Z%29+%28The+Hits+Collection+Volume+One+%5BDeluxe+Edition+%28Explicit%29%5D%29&alt=json
+WARNING:root:2022-07-11T20:47:44.377465-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%2803%27+Bonnie+%26+Clyde+-+JAY-Z+featuring+Beyonc%C3%A9%29+%28The+Hits+Collection+Volume+One+%5BDeluxe+Edition+%28Explicit%29%5D%29&alt=json
+WARNING:root:2022-07-11T20:47:46.457708-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Numb++Encore+-+JAY-Z+featuring+Linkin+Park%29+%28Numb++Encore%3A+MTV+Ultimate+Mash-Ups+Presents+Collision+Course%29&alt=json
+WARNING:root:2022-07-11T20:47:48.570219-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Empire+State+Of+Mind+-+JAY-Z+featuring+Alicia+Keys%29+%28The+Blueprint+3%29&alt=json
+WARNING:root:2022-07-11T20:47:50.649447-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Ni%2A%2Aas+In+Paris+-+JAY-Z+featuring+Kanye+West%29+%28Watch+The+Throne+%28Deluxe%29%29&alt=json
+WARNING:root:2022-07-11T20:47:52.744656-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Through+The+Wire+-+Kanye+West%29+%28The+College+Dropout%29&alt=json
+WARNING:root:2022-07-11T20:47:54.820634-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28The+New+Workout+Plan+-+Kanye+West%29+%28The+College+Dropout%29&alt=json
+WARNING:root:2022-07-11T20:47:56.923839-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Slow+Jamz+-+Twista+featuring+Kanye+West%29+%28The+College+Dropout%29&alt=json
+WARNING:root:2022-07-11T20:47:59.024284-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Never+Let+Me+Down+-+Kanye+West+featuring+JAY-Z%29+%28The+College+Dropout%29&alt=json
+WARNING:root:2022-07-11T20:48:01.104441-05:001 seconds waited, no error, for method

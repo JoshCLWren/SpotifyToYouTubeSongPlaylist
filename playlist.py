@@ -60,6 +60,8 @@ class Playlist:
         if not self.youtube_id:
             self.create_youtube_playlist(quota)
         self.spotify = spotify
+        if self.youtube_id:
+            self.youtube_tracks = self.get_youtube_tracks()
 
     def _is_cached(self):
         """Tries to get the playlist from the cache"""
@@ -258,3 +260,31 @@ class Playlist:
                     ):
                         return True
         return False
+
+    def get_youtube_tracks(self):
+        """Returns the tracks in the playlist from the api"""
+        request = handle_request(
+            func=self.youtube_request.discovery.playlistItems().list,
+            part="snippet",
+            playlistId=self.youtube_id,
+        )
+        try:
+            tracks = handle_request(func=request.execute)["items"]
+
+            # cache the tracks
+            for track in tracks:
+                for tune in self.cache["tracks"]:
+                    if (
+                        tune["track_name"] in track["snippet"]["title"]
+                        and tune["artist_name"] in track["snippet"]["title"]
+                    ):
+                        tune["youtube_id"] = track["snippet"]["resourceId"]["videoId"]
+                        with open(f"./playlist_cache/{self.name}", "w") as f:
+                            json.dump(self.cache, f)
+                            print(f"{self.name} cache updated")
+                        with open(f"./playlist_cache/{self.name}", "r") as f:
+                            self.cache = json.load(f)
+                            self.tracks = self.cache["tracks"]
+        except TypeError:
+            print(f"{self.name} failed to get tracks")
+            return None

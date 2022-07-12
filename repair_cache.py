@@ -10,7 +10,7 @@ import spotifysession
 
 def fix_keys_of_youtube_cache():
     """Fixes the cache formating of youtube playlists"""
-    with open("youtube_playlists_v1.json", "r") as f:
+    with open("youtube_playlists.json", "r") as f:
         cache = json.load(f)
         playlist_dict = {}
         for name, _id in cache["playlists"].items():
@@ -23,7 +23,7 @@ def fix_keys_of_youtube_cache():
 
         cache["playlists"] = playlist_dict
         cache["last_updated"] = arrow.now().isoformat()
-        with open("youtube_playlists_v2.json", "w") as f:
+        with open("youtube_playlists_v1.json", "w") as f:
             json.dump(cache, f)
     return cache
 
