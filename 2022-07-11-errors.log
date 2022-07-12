@@ -1,0 +1,1183 @@
+DEBUG:requests_oauthlib.oauth2_session:Generated new state nC24aO3bLKFHiwLljarxmWBiR6GLJV.
+INFO:google_auth_oauthlib.flow:"GET /?state=nC24aO3bLKFHiwLljarxmWBiR6GLJV&code=4/0AdQt8qjkGaCrKqldSg4gjALab23W405j0OF5cC4iJ2-U-hY5HsyElNFI6PDpV4tAMlQ8cg&scope=https://www.googleapis.com/auth/youtube.force-ssl HTTP/1.1" 200 65
+DEBUG:requests_oauthlib.oauth2_session:Encoding `client_id` "845416578463-b27gsmn3ohd9jht15d4nr11fgnsetldk.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+DEBUG:requests_oauthlib.oauth2_session:Requesting url https://oauth2.googleapis.com/token using method POST.
+DEBUG:requests_oauthlib.oauth2_session:Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AdQt8qjkGaCrKqldSg4gjALab23W405j0OF5cC4iJ2-U-hY5HsyElNFI6PDpV4tAMlQ8cg', 'redirect_uri': 'http://localhost:8080/'}
+DEBUG:requests_oauthlib.oauth2_session:Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x1045c22e0>, 'verify': True, 'proxies': None, 'cert': None}.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:requests_oauthlib.oauth2_session:Request to fetch token completed with status 200.
+DEBUG:requests_oauthlib.oauth2_session:Request url was https://oauth2.googleapis.com/token
+DEBUG:requests_oauthlib.oauth2_session:Request headers were {'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '156', 'Authorization': 'Basic ODQ1NDE2NTc4NDYzLWIyN2dzbW4zb2hkOWpodDE1ZDRucjExZmduc2V0bGRrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1FQWdHbGtpQ2c2azRnRXdDbWJNODVrUXVHelMz'}
+DEBUG:requests_oauthlib.oauth2_session:Request body was grant_type=authorization_code&code=4%2F0AdQt8qjkGaCrKqldSg4gjALab23W405j0OF5cC4iJ2-U-hY5HsyElNFI6PDpV4tAMlQ8cg&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F
+DEBUG:requests_oauthlib.oauth2_session:Response headers were {'Date': 'Mon, 11 Jul 2022 05:33:13 GMT', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.A0AVA9y1tmbWh8WTJTbFdnt2e4pH_3X8N7Thb1OCnGnD53U4tNJS-F0RBUxz_e8C0XV69Pvqn1Mi5ivP-Ci0KXotNhES9xqo20lEEpMEZt24Y7NPTbLl7BGxyBLEhL-q6VxlXs2RA8GVCaQ8A6CQeqQONklS2JYUNnWUtBVEFTQVRBU0ZRRTY1ZHI4Z0YwVnJuUy14Rmk0Y1JFYjB4M0pFZw0163",
+  "expires_in": 3599,
+  "refresh_token": "1//0fT6BdfEp4KnCCgYIARAAGA8SNwF-L9IrJqt8DnCe4LiO3qCv4udlI8iN7ZYFA7VJ6StSGatZnyG8EVjTwMbJqo8QsPV393fHdZs",
+  "scope": "https://www.googleapis.com/auth/youtube.force-ssl",
+  "token_type": "Bearer"
+}.
+DEBUG:requests_oauthlib.oauth2_session:Invoking 0 token response hooks.
+DEBUG:requests_oauthlib.oauth2_session:Obtained token {'access_token': 'ya29.A0AVA9y1tmbWh8WTJTbFdnt2e4pH_3X8N7Thb1OCnGnD53U4tNJS-F0RBUxz_e8C0XV69Pvqn1Mi5ivP-Ci0KXotNhES9xqo20lEEpMEZt24Y7NPTbLl7BGxyBLEhL-q6VxlXs2RA8GVCaQ8A6CQeqQONklS2JYUNnWUtBVEFTQVRBU0ZRRTY1ZHI4Z0YwVnJuUy14Rmk0Y1JFYjB4M0pFZw0163', 'expires_in': 3599, 'refresh_token': '1//0fT6BdfEp4KnCCgYIARAAGA8SNwF-L9IrJqt8DnCe4LiO3qCv4udlI8iN7ZYFA7VJ6StSGatZnyG8EVjTwMbJqo8QsPV393fHdZs', 'scope': ['https://www.googleapis.com/auth/youtube.force-ssl'], 'token_type': 'Bearer', 'expires_at': 1657521354.949546}.
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T00:37:14.341952-05:001 seconds waited, no error, for request_client_token
+DEBUG:requests_oauthlib.oauth2_session:Generated new state GjFrUV6H9jsLyG4xsMltXLoKE0p4rp.
+INFO:google_auth_oauthlib.flow:"GET /?state=GjFrUV6H9jsLyG4xsMltXLoKE0p4rp&code=4/0AdQt8qijciSlnw_ZSiBAkdiiUJXr3lnXBAZgwrZYvNMOfSbfZwz3qkdwL8LM1QnvdcAYJA&scope=https://www.googleapis.com/auth/youtube.force-ssl HTTP/1.1" 200 65
+DEBUG:requests_oauthlib.oauth2_session:Encoding `client_id` "845416578463-b27gsmn3ohd9jht15d4nr11fgnsetldk.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+DEBUG:requests_oauthlib.oauth2_session:Requesting url https://oauth2.googleapis.com/token using method POST.
+DEBUG:requests_oauthlib.oauth2_session:Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AdQt8qijciSlnw_ZSiBAkdiiUJXr3lnXBAZgwrZYvNMOfSbfZwz3qkdwL8LM1QnvdcAYJA', 'redirect_uri': 'http://localhost:8080/'}
+DEBUG:requests_oauthlib.oauth2_session:Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x104fe1100>, 'verify': True, 'proxies': None, 'cert': None}.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:requests_oauthlib.oauth2_session:Request to fetch token completed with status 200.
+DEBUG:requests_oauthlib.oauth2_session:Request url was https://oauth2.googleapis.com/token
+DEBUG:requests_oauthlib.oauth2_session:Request headers were {'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '156', 'Authorization': 'Basic ODQ1NDE2NTc4NDYzLWIyN2dzbW4zb2hkOWpodDE1ZDRucjExZmduc2V0bGRrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1FQWdHbGtpQ2c2azRnRXdDbWJNODVrUXVHelMz'}
+DEBUG:requests_oauthlib.oauth2_session:Request body was grant_type=authorization_code&code=4%2F0AdQt8qijciSlnw_ZSiBAkdiiUJXr3lnXBAZgwrZYvNMOfSbfZwz3qkdwL8LM1QnvdcAYJA&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F
+DEBUG:requests_oauthlib.oauth2_session:Response headers were {'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Date': 'Mon, 11 Jul 2022 05:52:24 GMT', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.a0AVA9y1uKs7ZIshFgKPLl9vj_hgQVW0bHmVEQs37XtaLZp-Ie2_PHqj3hCA6qTzN5d2IRjjbQWKdVAAp0gfMuTyBixzbEux3NO9xkRT7yGlYq26Cd_zn-KbbNq5SZ4yhnoYLeYUr17I24GBSt5iweMB_3-h6Q",
+  "expires_in": 3599,
+  "refresh_token": "1//0fff4mu3ax8HaCgYIARAAGA8SNwF-L9IrFDN6CfgUKYeQ9VSDDXgBkMv8Df-LqMnmRab3iINJoleI5XSVn5Q5XJvXbVogj7bft0k",
+  "scope": "https://www.googleapis.com/auth/youtube.force-ssl",
+  "token_type": "Bearer"
+}.
+DEBUG:requests_oauthlib.oauth2_session:Invoking 0 token response hooks.
+DEBUG:requests_oauthlib.oauth2_session:Obtained token {'access_token': 'ya29.a0AVA9y1uKs7ZIshFgKPLl9vj_hgQVW0bHmVEQs37XtaLZp-Ie2_PHqj3hCA6qTzN5d2IRjjbQWKdVAAp0gfMuTyBixzbEux3NO9xkRT7yGlYq26Cd_zn-KbbNq5SZ4yhnoYLeYUr17I24GBSt5iweMB_3-h6Q', 'expires_in': 3599, 'refresh_token': '1//0fff4mu3ax8HaCgYIARAAGA8SNwF-L9IrFDN6CfgUKYeQ9VSDDXgBkMv8Df-LqMnmRab3iINJoleI5XSVn5Q5XJvXbVogj7bft0k', 'scope': ['https://www.googleapis.com/auth/youtube.force-ssl'], 'token_type': 'Bearer', 'expires_at': 1657522343.8893812}.
+DEBUG:requests_oauthlib.oauth2_session:Generated new state P8MXkClLEjQEaq4HIzf6lJWGhnBEE3.
+INFO:google_auth_oauthlib.flow:"GET /?state=P8MXkClLEjQEaq4HIzf6lJWGhnBEE3&code=4/0AdQt8qgQN2hz9nb5maNOi-77mdcedXj6L7wQpZEFfd77vucCh8a3Q_iVOdjvm6uAo-RElw&scope=https://www.googleapis.com/auth/youtube.force-ssl HTTP/1.1" 200 65
+DEBUG:requests_oauthlib.oauth2_session:Encoding `client_id` "845416578463-b27gsmn3ohd9jht15d4nr11fgnsetldk.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+DEBUG:requests_oauthlib.oauth2_session:Requesting url https://oauth2.googleapis.com/token using method POST.
+DEBUG:requests_oauthlib.oauth2_session:Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AdQt8qgQN2hz9nb5maNOi-77mdcedXj6L7wQpZEFfd77vucCh8a3Q_iVOdjvm6uAo-RElw', 'redirect_uri': 'http://localhost:8080/'}
+DEBUG:requests_oauthlib.oauth2_session:Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x10554ff10>, 'verify': True, 'proxies': None, 'cert': None}.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:requests_oauthlib.oauth2_session:Request to fetch token completed with status 200.
+DEBUG:requests_oauthlib.oauth2_session:Request url was https://oauth2.googleapis.com/token
+DEBUG:requests_oauthlib.oauth2_session:Request headers were {'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '156', 'Authorization': 'Basic ODQ1NDE2NTc4NDYzLWIyN2dzbW4zb2hkOWpodDE1ZDRucjExZmduc2V0bGRrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1FQWdHbGtpQ2c2azRnRXdDbWJNODVrUXVHelMz'}
+DEBUG:requests_oauthlib.oauth2_session:Request body was grant_type=authorization_code&code=4%2F0AdQt8qgQN2hz9nb5maNOi-77mdcedXj6L7wQpZEFfd77vucCh8a3Q_iVOdjvm6uAo-RElw&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F
+DEBUG:requests_oauthlib.oauth2_session:Response headers were {'Pragma': 'no-cache', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Date': 'Mon, 11 Jul 2022 05:54:10 GMT', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.A0AVA9y1tjthoa6K2ymEVVtpjWKvYI1Mp-PprPB19nCUkHi72Hloe7niMRDYDy_qIrXsax4BwgoN4AI_yavxHjgMa1NDih9CDaM6Z8ltLS8H7xQH9fm-hJGB-O1i8iWKLwt06Fo43U-fMixE5Gww4IiZos_BAYYUNnWUtBVEFTQVRBU0ZRRTY1ZHI4UGJuU1RDOWNIRzhyNjJBV1l3VGJrdw0163",
+  "expires_in": 3599,
+  "refresh_token": "1//0fKP5fAiWPZVBCgYIARAAGA8SNwF-L9Irsrx6SdPQiP7sBN4EjRpF0kN6XgZIKjA0BQ8YBKLKru24sL9Q511Sr07XZhsi9Hd45hM",
+  "scope": "https://www.googleapis.com/auth/youtube.force-ssl",
+  "token_type": "Bearer"
+}.
+DEBUG:requests_oauthlib.oauth2_session:Invoking 0 token response hooks.
+DEBUG:requests_oauthlib.oauth2_session:Obtained token {'access_token': 'ya29.A0AVA9y1tjthoa6K2ymEVVtpjWKvYI1Mp-PprPB19nCUkHi72Hloe7niMRDYDy_qIrXsax4BwgoN4AI_yavxHjgMa1NDih9CDaM6Z8ltLS8H7xQH9fm-hJGB-O1i8iWKLwt06Fo43U-fMixE5Gww4IiZos_BAYYUNnWUtBVEFTQVRBU0ZRRTY1ZHI4UGJuU1RDOWNIRzhyNjJBV1l3VGJrdw0163', 'expires_in': 3599, 'refresh_token': '1//0fKP5fAiWPZVBCgYIARAAGA8SNwF-L9Irsrx6SdPQiP7sBN4EjRpF0kN6XgZIKjA0BQ8YBKLKru24sL9Q511Sr07XZhsi9Hd45hM', 'scope': ['https://www.googleapis.com/auth/youtube.force-ssl'], 'token_type': 'Bearer', 'expires_at': 1657522449.504787}.
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T00:54:24.767178-05:001 seconds waited, no error, for request_client_token
+DEBUG:requests_oauthlib.oauth2_session:Generated new state 3ue1fkXyFT2RaqO3IcXZ1gTI3EExTR.
+INFO:google_auth_oauthlib.flow:"GET /?state=3ue1fkXyFT2RaqO3IcXZ1gTI3EExTR&code=4/0AdQt8qiE86aVAl0zX2_L9qk7VDICObg4_uTUcVRc2qK73mn5h23FPZeYiUu6VV-e1BOJ9w&scope=https://www.googleapis.com/auth/youtube.force-ssl HTTP/1.1" 200 65
+DEBUG:requests_oauthlib.oauth2_session:Encoding `client_id` "845416578463-b27gsmn3ohd9jht15d4nr11fgnsetldk.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+DEBUG:requests_oauthlib.oauth2_session:Requesting url https://oauth2.googleapis.com/token using method POST.
+DEBUG:requests_oauthlib.oauth2_session:Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AdQt8qiE86aVAl0zX2_L9qk7VDICObg4_uTUcVRc2qK73mn5h23FPZeYiUu6VV-e1BOJ9w', 'redirect_uri': 'http://localhost:8080/'}
+DEBUG:requests_oauthlib.oauth2_session:Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x10639eeb0>, 'verify': True, 'proxies': None, 'cert': None}.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:requests_oauthlib.oauth2_session:Request to fetch token completed with status 200.
+DEBUG:requests_oauthlib.oauth2_session:Request url was https://oauth2.googleapis.com/token
+DEBUG:requests_oauthlib.oauth2_session:Request headers were {'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '156', 'Authorization': 'Basic ODQ1NDE2NTc4NDYzLWIyN2dzbW4zb2hkOWpodDE1ZDRucjExZmduc2V0bGRrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1FQWdHbGtpQ2c2azRnRXdDbWJNODVrUXVHelMz'}
+DEBUG:requests_oauthlib.oauth2_session:Request body was grant_type=authorization_code&code=4%2F0AdQt8qiE86aVAl0zX2_L9qk7VDICObg4_uTUcVRc2qK73mn5h23FPZeYiUu6VV-e1BOJ9w&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F
+DEBUG:requests_oauthlib.oauth2_session:Response headers were {'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Date': 'Mon, 11 Jul 2022 05:57:09 GMT', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.a0AVA9y1tZOPjxM0bofbpmUMPOcMwQD2t19mmvTVFXDG-6D4FahMqqcQRGssVEBc8uZxLk3v0Lx9SoJZM6ygxSkSN5TO2JQuPPCN_Rmr6Jf7TZGEBPJczja6DbVg1EBSGRnWHJwzPXpEK27kU6pBabVlLGW5rS",
+  "expires_in": 3599,
+  "refresh_token": "1//0f5C2_pxoYmVWCgYIARAAGA8SNwF-L9IrsYkcbSqyi9wMi29X9fr-DDirsZAV6QbSHlP_bBFwqIyMsN9mQBM0kRaUiBdRcDV0vV8",
+  "scope": "https://www.googleapis.com/auth/youtube.force-ssl",
+  "token_type": "Bearer"
+}.
+DEBUG:requests_oauthlib.oauth2_session:Invoking 0 token response hooks.
+DEBUG:requests_oauthlib.oauth2_session:Obtained token {'access_token': 'ya29.a0AVA9y1tZOPjxM0bofbpmUMPOcMwQD2t19mmvTVFXDG-6D4FahMqqcQRGssVEBc8uZxLk3v0Lx9SoJZM6ygxSkSN5TO2JQuPPCN_Rmr6Jf7TZGEBPJczja6DbVg1EBSGRnWHJwzPXpEK27kU6pBabVlLGW5rS', 'expires_in': 3599, 'refresh_token': '1//0f5C2_pxoYmVWCgYIARAAGA8SNwF-L9IrsYkcbSqyi9wMi29X9fr-DDirsZAV6QbSHlP_bBFwqIyMsN9mQBM0kRaUiBdRcDV0vV8', 'scope': ['https://www.googleapis.com/auth/youtube.force-ssl'], 'token_type': 'Bearer', 'expires_at': 1657522628.875707}.
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T00:57:27.566894-05:001 seconds waited, no error, for request_client_token
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T00:58:02.553833-05:001 seconds waited, no error, for request_client_token
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T00:58:29.116468-05:001 seconds waited, no error, for request_client_token
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:03:21.643380-05:001 seconds waited, no error, for request_client_token
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:03:22.655570-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:03:26.027177-05:00 3 seconds waited, error, for execute, trying again in 2 seconds 
+Traceback (most recent call last):
+  File "/Users/joshwren/Code/playground/test/SpotifyToYouTubeSongPlaylist/http_requests.py", line 21, in handle_request
+    call = func(**kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json returned "Playlist id not specified.". Details: "[{'message': 'Playlist id not specified.', 'domain': 'youtube.playlistItem', 'reason': 'playlistIdRequired'}]">
+WARNING:root:2022-07-11T01:03:32.197686-05:00 9 seconds waited, error, for execute, trying again in 4 seconds 
+Traceback (most recent call last):
+  File "/Users/joshwren/Code/playground/test/SpotifyToYouTubeSongPlaylist/http_requests.py", line 21, in handle_request
+    call = func(**kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json returned "Playlist id not specified.". Details: "[{'message': 'Playlist id not specified.', 'domain': 'youtube.playlistItem', 'reason': 'playlistIdRequired'}]">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/joshwren/Code/playground/test/SpotifyToYouTubeSongPlaylist/http_requests.py", line 21, in handle_request
+    call = func(**kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json returned "Playlist id not specified.". Details: "[{'message': 'Playlist id not specified.', 'domain': 'youtube.playlistItem', 'reason': 'playlistIdRequired'}]">
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:08:13.550304-05:001 seconds waited, no error, for request_client_token
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:10:43.422076-05:001 seconds waited, no error, for request_client_token
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:11:52.793130-05:001 seconds waited, no error, for request_client_token
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:12:00.119123-05:001 seconds waited, no error, for request_client_token
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:13:40.641159-05:001 seconds waited, no error, for request_client_token
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:13:56.384901-05:001 seconds waited, no error, for request_client_token
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:14:35.874767-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:17:47.055201-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:17:48.400441-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:17:51.551933-05:00 3 seconds waited, error, for execute, trying again in 2 seconds 
+Traceback (most recent call last):
+  File "/Users/joshwren/Code/playground/test/SpotifyToYouTubeSongPlaylist/http_requests.py", line 21, in handle_request
+    call = func(**kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json returned "Playlist id not specified.". Details: "[{'message': 'Playlist id not specified.', 'domain': 'youtube.playlistItem', 'reason': 'playlistIdRequired'}]">
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:18:54.410491-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:18:55.727766-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:18:58.887455-05:00 3 seconds waited, error, for execute, trying again in 2 seconds 
+Traceback (most recent call last):
+  File "/Users/joshwren/Code/playground/test/SpotifyToYouTubeSongPlaylist/http_requests.py", line 21, in handle_request
+    call = func(**kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json returned "Playlist id not specified.". Details: "[{'message': 'Playlist id not specified.', 'domain': 'youtube.playlistItem', 'reason': 'playlistIdRequired'}]">
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:19:16.533216-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:20:36.456157-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:20:37.816177-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:20:41.072723-05:00 3 seconds waited, error, for execute, trying again in 2 seconds 
+Traceback (most recent call last):
+  File "/Users/joshwren/Code/playground/test/SpotifyToYouTubeSongPlaylist/http_requests.py", line 21, in handle_request
+    call = func(**kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json returned "Playlist id not specified.". Details: "[{'message': 'Playlist id not specified.', 'domain': 'youtube.playlistItem', 'reason': 'playlistIdRequired'}]">
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:20:52.752349-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:23:52.477001-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:23:53.887400-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:23:57.076514-05:00 3 seconds waited, error, for execute, trying again in 2 seconds 
+Traceback (most recent call last):
+  File "/Users/joshwren/Code/playground/test/SpotifyToYouTubeSongPlaylist/http_requests.py", line 21, in handle_request
+    call = func(**kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json returned "Playlist id not specified.". Details: "[{'message': 'Playlist id not specified.', 'domain': 'youtube.playlistItem', 'reason': 'playlistIdRequired'}]">
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:24:15.025108-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:24:16.377319-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:24:19.518271-05:00 3 seconds waited, error, for execute, trying again in 2 seconds 
+Traceback (most recent call last):
+  File "/Users/joshwren/Code/playground/test/SpotifyToYouTubeSongPlaylist/http_requests.py", line 21, in handle_request
+    call = func(**kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json returned "Playlist id not specified.". Details: "[{'message': 'Playlist id not specified.', 'domain': 'youtube.playlistItem', 'reason': 'playlistIdRequired'}]">
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:24:51.182494-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:28:11.236779-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:29:57.510958-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:29:59.493641-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:30:00.990434-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:30:02.000697-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:30:03.694897-05:001 seconds waited, no error, for execute
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:31:42.097895-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:31:44.371052-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:31:45.843996-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:31:46.867832-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:31:48.452005-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:31:49.468195-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:31:50.990678-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:31:52.012548-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:31:53.493453-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:31:54.514523-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:31:56.236851-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:31:57.258374-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:31:58.783040-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Suit+And+Jacket+-+Judah+%26+the+Lion%29+%28Folk+Hop+N%27+Roll+%28Deluxe%29%29&alt=json
+WARNING:root:2022-07-11T01:31:59.803725-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:01.251411-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:02.272421-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:03.643776-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:04.666019-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:06.250656-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:07.272743-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:08.817073-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:09.877405-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:11.491245-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:12.513083-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:14.179832-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:15.203302-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:16.677200-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:17.703071-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:19.118070-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:20.138968-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:21.628911-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:22.652275-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:24.189102-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:25.209631-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:26.734703-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:27.757574-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:29.130329-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:30.165811-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:31.882215-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:32.937899-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:34.429505-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:35.451722-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:37.194150-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:38.218121-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:39.618325-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:40.641094-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:42.140118-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:43.170859-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:44.659389-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:45.682810-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:47.165212-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:48.187027-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:49.748710-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:50.771433-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:52.271779-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:53.296854-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:54.952426-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:55.976530-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:32:57.566599-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:32:58.624527-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:00.019885-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:01.038246-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:02.502253-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:03.521881-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:04.932930-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:05.956041-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:07.601174-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:08.637347-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:10.173505-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:11.197324-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:12.831619-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:13.864381-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:15.289276-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:16.312494-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:18.018553-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:19.039932-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:20.633682-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:21.656556-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:23.261164-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:24.282391-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:25.752044-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:26.776101-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:28.216263-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:29.240069-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:30.826836-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28This+Year+-+The+Mountain+Goats%29+%28The+Sunset+Tree%29&alt=json
+WARNING:root:2022-07-11T01:33:31.850566-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:33.413848-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:34.437650-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:35.974606-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:37.002217-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:38.535656-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:39.559805-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:41.089440-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:42.114074-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:43.653894-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:44.681669-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:46.329440-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:47.354743-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:48.907243-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:49.932629-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:51.572933-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Cupid%27s+Chokehold++Breakfast+in+America+-+Gym+Class+Heroes%29+%28The+Papercut+Chronicles%29&alt=json
+WARNING:root:2022-07-11T01:33:52.596864-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:54.100229-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:33:55.122384-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:56.601916-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Stereo+-+Pavement%29+%28Brighten+the+Corners%3A+Nicene+Creedence+Ed.%29&alt=json
+WARNING:root:2022-07-11T01:33:57.625858-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:33:58.998952-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Harness+Your+Hopes+-+B-side+-+Pavement%29+%28Brighten+the+Corners%3A+Nicene+Creedence+Ed.%29&alt=json
+WARNING:root:2022-07-11T01:34:00.022377-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:01.473186-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:02.497242-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:03.929783-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:04.954814-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:06.497773-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:07.522070-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:09.011259-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:10.035159-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:11.496001-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:12.531176-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:13.999055-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:15.024796-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:16.392570-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:17.420026-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:18.890151-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:19.914424-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:21.480705-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:22.507306-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:24.080143-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:25.105801-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:26.571654-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:27.597429-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:29.026502-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:30.049675-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:31.532915-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:32.557245-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:34.046833-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:35.072897-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:36.423160-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:37.449838-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:38.884840-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Where+Rainbows+Never+Die+-+The+Steeldrivers%29+%28Reckless%29&alt=json
+WARNING:root:2022-07-11T01:34:39.906303-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:41.512570-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:42.535159-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:44.013678-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28HOLIDAY+-+Turnstile%29+%28GLOW+ON%29&alt=json
+WARNING:root:2022-07-11T01:34:45.038942-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:46.631897-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:47.657470-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:49.244789-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28All+My+Favorite+Songs+-+Live+from+Hella+Mega+-+Weezer%29+%28All+My+Favorite+Songs+%28Live+from+Hella+Mega%29%29&alt=json
+WARNING:root:2022-07-11T01:34:50.271634-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:51.837207-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:52.895998-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:54.517115-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Pancho+and+Lefty+-+Willie+Nelson+featuring+Merle+Haggard%29+%28Walking+the+Line%29&alt=json
+WARNING:root:2022-07-11T01:34:55.543609-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:56.976383-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:34:58.002729-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:34:59.728487-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Buddy+-+Willie+Nelson%29+%28Good+Times%29&alt=json
+WARNING:root:2022-07-11T01:35:00.750318-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:02.299585-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28I%27m+a+Ramblin%27+Man+-+Waylon+Jennings%29+%28The+Ramblin%27+Man%29&alt=json
+WARNING:root:2022-07-11T01:35:03.327345-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:05.065671-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:35:06.091532-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:07.554388-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Set+in+Motion+-+Sloan%29+%28Never+Hear+the+End+of+It%29&alt=json
+WARNING:root:2022-07-11T01:35:08.583460-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:09.926629-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:35:10.953120-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:12.384242-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28All+My+Favorite+Songs+%28feat.+AJR%29+-+Weezer+featuring+AJR%29+%28All+My+Favorite+Songs+%28feat.+AJR%29%29&alt=json
+WARNING:root:2022-07-11T01:35:13.410916-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:15.102879-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:35:16.128484-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:17.588179-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28All+Eyes+On+Me+%28Song+Only%29+-+Bo+Burnham%29+%28All+Eyes+On+Me+%28Song+Only%29%29&alt=json
+WARNING:root:2022-07-11T01:35:18.616385-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:20.045554-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:35:21.071283-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:22.803188-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28The+Blessing+%28Live%29+-+Elevation+Worship+featuring+Kari+Jobe%29+%28Graves+Into+Gardens+%28Live%29%29&alt=json
+WARNING:root:2022-07-11T01:35:23.853746-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:25.398793-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:35:26.427366-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:28.042598-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Graves+Into+Gardens+%28Live%29+-+Elevation+Worship+featuring+Brandon+Lake%29+%28Graves+Into+Gardens+%28Live%29%29&alt=json
+WARNING:root:2022-07-11T01:35:29.069830-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:30.646447-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:35:31.673285-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:33.329406-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Beggin%27+-+M%C3%A5neskin%29+%28Chosen%29&alt=json
+WARNING:root:2022-07-11T01:35:34.356135-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:35.785634-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:35:36.811190-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:38.345922-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Follow+You+-+Imagine+Dragons%29+%28Follow+You++Cutthroat%29&alt=json
+WARNING:root:2022-07-11T01:35:39.372238-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:40.791635-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:35:41.818261-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:43.465896-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28My+Maria+-+Brooks+%26+Dunn%29+%28%231s+...+and+then+some%29&alt=json
+WARNING:root:2022-07-11T01:35:44.502877-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:45.938851-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:35:46.964320-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:48.586960-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Night+Shift+-+Lucy+Dacus%29+%28Historian%29&alt=json
+WARNING:root:2022-07-11T01:35:49.613605-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:51.145958-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:35:52.172478-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:53.808529-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28RATTLE%21+%28Live%29+-+Elevation+Worship%29+%28Graves+Into+Gardens+%28Live%29%29&alt=json
+WARNING:root:2022-07-11T01:35:54.831006-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:56.471568-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:35:57.503506-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:35:58.885096-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28White+Woman%E2%80%99s+Instagram+-+Bo+Burnham%29+%28Inside+%28The+Songs%29%29&alt=json
+WARNING:root:2022-07-11T01:35:59.910969-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:01.382381-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:36:02.411090-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:03.947130-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Look+Who%E2%80%99s+Inside+Again+-+Bo+Burnham%29+%28Inside+%28The+Songs%29%29&alt=json
+WARNING:root:2022-07-11T01:36:04.973549-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:06.334716-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:36:07.362108-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:08.759789-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28FaceTime+with+my+Mom+%28Tonight%29+-+Bo+Burnham%29+%28Inside+%28The+Songs%29%29&alt=json
+WARNING:root:2022-07-11T01:36:09.788494-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:11.222949-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:36:12.251209-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:13.878747-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Content+-+Bo+Burnham%29+%28Inside+%28The+Songs%29%29&alt=json
+WARNING:root:2022-07-11T01:36:14.903872-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:16.273510-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:36:17.300537-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:18.983026-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Goodbye+-+Bo+Burnham%29+%28Inside+%28The+Songs%29%29&alt=json
+WARNING:root:2022-07-11T01:36:20.009168-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:21.518190-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:36:22.544020-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:24.017119-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28All+Eyes+On+Me+-+Bo+Burnham%29+%28Inside+%28The+Songs%29%29&alt=json
+WARNING:root:2022-07-11T01:36:25.044301-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:26.558602-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:36:27.585420-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:28.982369-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Everything+Stays+%28feat.+Olivia+Olson%29+-+Adventure+Time+featuring+Olivia+Olson%29+%28Adventure+Time%2C+Vol.+3+%28Original+Soundtrack%29%29&alt=json
+WARNING:root:2022-07-11T01:36:30.009028-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:31.435464-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:36:32.484836-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:34.156671-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Everything+Stays+%28Marcy+and+Mom%29+%5Bfeat.+Rebecca+Sugar+%26+Ava+Acres%5D+-+Adventure+Time+featuring+Rebecca+Sugar%29+%28Adventure+Time%2C+Vol.+3+%28Original+Soundtrack%29%29&alt=json
+WARNING:root:2022-07-11T01:36:35.183267-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:36.920905-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:36:37.960822-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:39.462274-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Der+Holle+Rache+Kocht+in+Meinem+Herzen+%28feat.+Jeremy+Shada+%26+Hynden+Walch%29+-+Adventure+Time+featuring+Jeremy+Shada%29+%28Adventure+Time%2C+Vol.+2+%28Original+Soundtrack%29%29&alt=json
+WARNING:root:2022-07-11T01:36:40.508606-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:41.931185-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:36:42.958760-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:44.588491-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Remember+You+%28feat.+Olivia+Olson+%26+Tom+Kenny%29+-+Adventure+Time+featuring+Olivia+Olson%29+%28Adventure+Time%2C+Vol.+2+%28Original+Soundtrack%29%29&alt=json
+WARNING:root:2022-07-11T01:36:45.636688-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:47.169104-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:36:48.216925-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:49.889281-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Bacon+Pancakes+%28feat.+John+DiMaggio%29+-+Adventure+Time+featuring+John+DiMaggio%29+%28Adventure+Time%2C+Vol.+2+%28Original+Soundtrack%29%29&alt=json
+WARNING:root:2022-07-11T01:36:50.967810-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:52.489337-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:36:53.538445-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:55.072980-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Sleepy+Puppies+%28feat.+Jeremy+Shada%29+-+Adventure+Time+featuring+Jeremy+Shada%29+%28Adventure+Time%2C+Vol.+2+%28Original+Soundtrack%29%29&alt=json
+WARNING:root:2022-07-11T01:36:56.122373-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:36:57.604892-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:36:58.651401-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:37:00.309242-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Good+Little+Girl+%28feat.+Donald+Glover%2C+Madeleine+Martin+%26+Roz+Ryan%29+-+Adventure+Time+featuring+Donald+Glover%29+%28Adventure+Time%2C+Vol.+2+%28Original+Soundtrack%29%29&alt=json
+WARNING:root:2022-07-11T01:37:01.366883-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:37:03.027832-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:37:04.077854-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:37:05.667427-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Three+Nice+Dudes+%28feat.+John+DiMaggio+%26+Kumail+Nanjiani%29+-+Adventure+Time+featuring+John+DiMaggio%29+%28Adventure+Time%2C+Vol.+2+%28Original+Soundtrack%29%29&alt=json
+WARNING:root:2022-07-11T01:37:06.710871-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:37:08.184049-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:37:09.232251-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:37:10.787620-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28All+Gummed+Up++All+Warmed+Up+%28feat.+Jeremy+Shada+%26+John+DiMaggio%29+-+Adventure+Time+featuring+Jeremy+Shada%29+%28Adventure+Time%2C+Vol.+2+%28Original+Soundtrack%29%29&alt=json
+WARNING:root:2022-07-11T01:37:11.815502-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:37:13.379337-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:37:14.426653-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:37:15.843868-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Sleep+Walk+-+Santo+%26+Johnny%29+%28Canadian+American+Greatest+Hits+50th+Anniversary+Collection%29&alt=json
+WARNING:root:2022-07-11T01:37:16.895307-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:37:18.520028-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:37:19.589239-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:37:20.925699-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Comfortably+Numb+-+Pink+Floyd%29+%28The+Wall%29&alt=json
+WARNING:root:2022-07-11T01:37:21.963694-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:37:23.407489-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:37:24.453908-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:37:25.857330-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:37:27.066777-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4sbWEPjoU8Q1TJwGjyN5Mw?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:42:00.759245-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:42:02.340346-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:42:03.392259-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:42:04.835825-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Holy+Water+-+We+The+Kingdom%29+%28Holy+Water%29&alt=json
+WARNING:root:2022-07-11T01:42:05.882578-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:42:07.358236-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:42:08.408238-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:42:10.012453-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Good+God+Almighty+-+Crowder%29+%28Milk+%26+Honey%29&alt=json
+WARNING:root:2022-07-11T01:42:11.052201-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:42:12.477625-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:42:13.527481-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:42:14.917521-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Rise+Up+%28Lazarus%29+-+CAIN%29+%28Rise+Up%29&alt=json
+WARNING:root:2022-07-11T01:42:15.968258-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:42:17.393109-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:42:18.459894-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:42:20.105895-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Waymaker+-+Live+-+HighPointe+Worship%29+%28You+Are+Here%29&alt=json
+WARNING:root:2022-07-11T01:42:21.176804-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:42:22.616380-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:42:23.686889-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T01:42:25.121134-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:42:26.520427-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/3NFrckOdEBHXb1OBRyHnCX?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T01:42:31.999671-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Bang+a+Gong+%28Get+It+On%29+-+2003+Remaster+-+T.+Rex%29+%28Electric+Warrior+%5BExpanded+%26+Remastered%5D%29&alt=json
+WARNING:root:2022-07-11T01:42:34.185033-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:42:36.300151-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Children+Of+The+Revolution+-+T.+Rex%29+%28Children+Of+The+Revolution%29&alt=json
+WARNING:root:2022-07-11T01:42:38.373746-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Rebel+Rebel+-+2016+Remaster+-+David+Bowie%29+%28Diamond+Dogs+%282016+Remaster%29%29&alt=json
+WARNING:root:2022-07-11T01:42:40.484720-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28The+Jean+Genie+-+2013+Remaster+-+David+Bowie%29+%28Aladdin+Sane+%282013+Remaster%29%29&alt=json
+WARNING:root:2022-07-11T01:42:42.613260-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Suffragette+City+-+2012+Remaster+-+David+Bowie%29+%28The+Rise+and+Fall+of+Ziggy+Stardust+and+the+Spiders+from+Mars+%282012+Remaster%29%29&alt=json
+WARNING:root:2022-07-11T01:42:44.725364-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Ziggy+Stardust+-+2012+Remaster+-+David+Bowie%29+%28The+Rise+and+Fall+of+Ziggy+Stardust+and+the+Spiders+from+Mars+%282012+Remaster%29%29&alt=json
+WARNING:root:2022-07-11T01:42:46.832863-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Cum+on+Feel+the+Noize+-+Slade%29+%28Sladest+%28Expanded%29%29&alt=json
+WARNING:root:2022-07-11T01:42:49.020863-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&alt=json
+WARNING:root:2022-07-11T01:42:51.130618-05:001 seconds waited, no error, for method
+WARNING:googleapiclient.http:Encountered 403 Forbidden with reason "quotaExceeded"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T01:42:53.402173-05:001 seconds waited, no error, for request_client_token
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.youtube.com:443
+DEBUG:urllib3.connectionpool:https://www.youtube.com:443 "GET /playlist?list=PLhA0fn8dYCueUw7yNJUI86AtAtS0cZF-R HTTP/1.1" 200 None
+DEBUG:requests_oauthlib.oauth2_session:Generated new state q96rLQXbPUyOEgorrO1L4jBzho6GAT.
+INFO:google_auth_oauthlib.flow:"GET /?state=q96rLQXbPUyOEgorrO1L4jBzho6GAT&code=4/0AdQt8qh9o3m37-JseeMtqSka6xHkSoosgh1vMDu8Y17EmdRPg7_XeQJXyr_V1YNC9wyoTw&scope=https://www.googleapis.com/auth/youtube.force-ssl HTTP/1.1" 200 65
+DEBUG:requests_oauthlib.oauth2_session:Encoding `client_id` "845416578463-b27gsmn3ohd9jht15d4nr11fgnsetldk.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+DEBUG:requests_oauthlib.oauth2_session:Requesting url https://oauth2.googleapis.com/token using method POST.
+DEBUG:requests_oauthlib.oauth2_session:Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AdQt8qh9o3m37-JseeMtqSka6xHkSoosgh1vMDu8Y17EmdRPg7_XeQJXyr_V1YNC9wyoTw', 'redirect_uri': 'http://localhost:8080/'}
+DEBUG:requests_oauthlib.oauth2_session:Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x103eb80d0>, 'verify': True, 'proxies': None, 'cert': None}.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): oauth2.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+DEBUG:requests_oauthlib.oauth2_session:Request to fetch token completed with status 200.
+DEBUG:requests_oauthlib.oauth2_session:Request url was https://oauth2.googleapis.com/token
+DEBUG:requests_oauthlib.oauth2_session:Request headers were {'User-Agent': 'python-requests/2.28.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '156', 'Authorization': 'Basic ODQ1NDE2NTc4NDYzLWIyN2dzbW4zb2hkOWpodDE1ZDRucjExZmduc2V0bGRrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1FQWdHbGtpQ2c2azRnRXdDbWJNODVrUXVHelMz'}
+DEBUG:requests_oauthlib.oauth2_session:Request body was grant_type=authorization_code&code=4%2F0AdQt8qh9o3m37-JseeMtqSka6xHkSoosgh1vMDu8Y17EmdRPg7_XeQJXyr_V1YNC9wyoTw&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F
+DEBUG:requests_oauthlib.oauth2_session:Response headers were {'Date': 'Tue, 12 Jul 2022 00:22:45 GMT', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.a0AVA9y1sP7-O0AwFwtTGIsDOvSgrTxvvjwhAh48WJ6S4DEyT1Lf5G4XffcqHDiJbAn9ZMGv7UsN6uDZeE84TP-sVIMmtzBE9bWsy2z6FglXdm5pu7Ix04aRXiMUzyAAui2jtwx2J9P6LuCkR4-qumJHiC2zy6",
+  "expires_in": 3599,
+  "refresh_token": "1//0fEKCeSsa6sMoCgYIARAAGA8SNwF-L9IrugDlGTnx90rqUUtAEf0mOjzqTUjx014uH9D72aWgN1juwHRVN7cZXMaafjfr4AS4Qq8",
+  "scope": "https://www.googleapis.com/auth/youtube.force-ssl",
+  "token_type": "Bearer"
+}.
+DEBUG:requests_oauthlib.oauth2_session:Invoking 0 token response hooks.
+DEBUG:requests_oauthlib.oauth2_session:Obtained token {'access_token': 'ya29.a0AVA9y1sP7-O0AwFwtTGIsDOvSgrTxvvjwhAh48WJ6S4DEyT1Lf5G4XffcqHDiJbAn9ZMGv7UsN6uDZeE84TP-sVIMmtzBE9bWsy2z6FglXdm5pu7Ix04aRXiMUzyAAui2jtwx2J9P6LuCkR4-qumJHiC2zy6', 'expires_in': 3599, 'refresh_token': '1//0fEKCeSsa6sMoCgYIARAAGA8SNwF-L9IrugDlGTnx90rqUUtAEf0mOjzqTUjx014uH9D72aWgN1juwHRVN7cZXMaafjfr4AS4Qq8', 'scope': ['https://www.googleapis.com/auth/youtube.force-ssl'], 'token_type': 'Bearer', 'expires_at': 1657588964.326486}.
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T19:23:02.847300-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T19:31:57.519605-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T19:32:28.656813-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T19:32:45.714506-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T19:33:07.911758-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T19:34:21.327593-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T19:35:06.559931-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T19:35:23.677680-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T19:35:25.396447-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T19:35:27.148739-05:001 seconds waited, no error, for execute
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T19:57:52.159694-05:001 seconds waited, no error, for request_client_token
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T19:58:04.692374-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T19:58:31.145411-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T19:58:51.305164-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:01:40.612776-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:03:02.337490-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=track%2Cepisode "HTTP/1.1 200 OK"
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:13:03.680623-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4tmqH3N4Agr54G8Ynihw7n?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Suit+And+Jacket+-+Judah+%26+the+Lion%29+%28Folk+Hop+N%27+Roll+%28Deluxe%29%29&alt=json
+WARNING:root:2022-07-11T20:13:05.047409-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:06.717888-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28This+Year+-+The+Mountain+Goats%29+%28The+Sunset+Tree%29&alt=json
+WARNING:root:2022-07-11T20:13:07.794071-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:09.266779-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Cupid%27s+Chokehold++Breakfast+in+America+-+Gym+Class+Heroes%29+%28The+Papercut+Chronicles%29&alt=json
+WARNING:root:2022-07-11T20:13:10.322763-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:11.936060-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Stereo+-+Pavement%29+%28Brighten+the+Corners%3A+Nicene+Creedence+Ed.%29&alt=json
+WARNING:root:2022-07-11T20:13:12.987097-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:14.408848-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Buddy+-+Willie+Nelson%29+%28Good+Times%29&alt=json
+WARNING:root:2022-07-11T20:13:15.510977-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:16.985824-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28All+Gummed+Up++All+Warmed+Up+%28feat.+Jeremy+Shada+%26+John+DiMaggio%29+-+Adventure+Time+featuring+Jeremy+Shada%29+%28Adventure+Time%2C+Vol.+2+%28Original+Soundtrack%29%29&alt=json
+WARNING:root:2022-07-11T20:13:18.092310-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:19.752444-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:13:20.963080-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/4sbWEPjoU8Q1TJwGjyN5Mw?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:13:22.546938-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/3NFrckOdEBHXb1OBRyHnCX?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:13:23.813847-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:25.556028-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Bang+a+Gong+%28Get+It+On%29+-+2003+Remaster+-+T.+Rex%29+%28Electric+Warrior+%5BExpanded+%26+Remastered%5D%29&alt=json
+WARNING:root:2022-07-11T20:13:26.608795-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:28.115289-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Children+Of+The+Revolution+-+T.+Rex%29+%28Children+Of+The+Revolution%29&alt=json
+WARNING:root:2022-07-11T20:13:29.190027-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:30.788206-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Rebel+Rebel+-+2016+Remaster+-+David+Bowie%29+%28Diamond+Dogs+%282016+Remaster%29%29&alt=json
+WARNING:root:2022-07-11T20:13:31.831286-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:33.467948-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28The+Jean+Genie+-+2013+Remaster+-+David+Bowie%29+%28Aladdin+Sane+%282013+Remaster%29%29&alt=json
+WARNING:root:2022-07-11T20:13:34.517192-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:36.204197-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Suffragette+City+-+2012+Remaster+-+David+Bowie%29+%28The+Rise+and+Fall+of+Ziggy+Stardust+and+the+Spiders+from+Mars+%282012+Remaster%29%29&alt=json
+WARNING:root:2022-07-11T20:13:37.256930-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:38.820074-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Ziggy+Stardust+-+2012+Remaster+-+David+Bowie%29+%28The+Rise+and+Fall+of+Ziggy+Stardust+and+the+Spiders+from+Mars+%282012+Remaster%29%29&alt=json
+WARNING:root:2022-07-11T20:13:39.859259-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:41.495157-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Cum+on+Feel+the+Noize+-+Slade%29+%28Sladest+%28Expanded%29%29&alt=json
+WARNING:root:2022-07-11T20:13:42.555271-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:43.985705-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:13:45.189317-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/0htIEClWTKSaqvkGoph2lD?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28No+One+-+Acoustic+-+Alicia+Keys%29+%28Vault+Volume+1%29&alt=json
+WARNING:root:2022-07-11T20:13:46.489019-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:48.082853-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Perfect+-+Ed+Sheeran%29+%28%C3%B7+%28Deluxe%29%29&alt=json
+WARNING:root:2022-07-11T20:13:49.135205-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:50.776353-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28At+Last+-+Etta+James%29+%28At+Last%21%29&alt=json
+WARNING:root:2022-07-11T20:13:51.813829-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:53.510816-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Linger+-+The+Cranberries%29+%28Everybody+Else+Is+Doing+It%2C+So+Why+Can%27t+We%3F%29&alt=json
+WARNING:root:2022-07-11T20:13:54.562306-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:56.143812-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Electric+Love+-+B%C3%98RNS%29+%28Dopamine%29&alt=json
+WARNING:root:2022-07-11T20:13:57.195961-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:13:58.837340-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Foxey+Lady+-+Jimi+Hendrix%29+%28Experience+Hendrix%3A+The+Best+Of+Jimi+Hendrix%29&alt=json
+WARNING:root:2022-07-11T20:13:59.891766-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:01.366011-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28I%27d+Love+To+Lay+You+Down+-+Conway+Twitty%29+%28Love+Songs%29&alt=json
+WARNING:root:2022-07-11T20:14:02.412999-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:03.851135-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28My+Girl+-+The+Temptations%29+%28The+Temptations+Sing+Smokey%29&alt=json
+WARNING:root:2022-07-11T20:14:04.891861-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:06.514766-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:14:07.738445-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/15m7yN9ollJAQYSb7c62ca?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:14:09.059728-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:10.815907-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28If+You%27re+Gonna+Play+in+Texas+%28You+Gotta+Have+a+Fiddle+in+the+Band%29+-+Turnpike+Troubadours%29+%28High+Cotton%3A+The+Songs+of+Alabama%29&alt=json
+WARNING:root:2022-07-11T20:14:11.869579-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:13.783450-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Central+Daylight+Time+-+Wrinkle+Neck+Mules%29+%28Apprentice+To+Ghosts%29&alt=json
+WARNING:root:2022-07-11T20:14:14.821330-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:16.346068-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28The+Race+Is+On+-+George+Jones%29+%28I+Get+Lonely+In+A+Hurry%29&alt=json
+WARNING:root:2022-07-11T20:14:17.401949-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:19.034709-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Dixieland+Delight+%28Alabama+Cover%29+-+Old+Crow+Medicine+Show%29+%28Carry+Me+Back+to+Virginia%29&alt=json
+WARNING:root:2022-07-11T20:14:20.089772-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:21.771951-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Long+Hot+Summer+Day+-+Turnpike+Troubadours%29+%28Diamonds+%26+Gasoline%29&alt=json
+WARNING:root:2022-07-11T20:14:22.809650-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:24.335637-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Lodi+-+Jeffrey+Foucault%29+%28Stripping+Cane%29&alt=json
+WARNING:root:2022-07-11T20:14:25.387637-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:26.791415-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Lower+48+-+The+Gourds%29+%28Blood+Of+The+Ram%29&alt=json
+WARNING:root:2022-07-11T20:14:27.845729-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:29.247709-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Rye+Whiskey++Time+to+Switch+to+Whiskey+-+Corb+Lund%29+%28Losin%27+Lately+Gambler%29&alt=json
+WARNING:root:2022-07-11T20:14:30.300953-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:31.666979-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Bible+on+the+Dash+-+Corb+Lund+featuring+Hayes+Carll%29+%28Cabin+Fever%29&alt=json
+WARNING:root:2022-07-11T20:14:32.734587-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:34.189961-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Brooklyn+Kid+-+Cross+Canadian+Ragweed%29+%28Cross+Canadian+Ragweed%29&alt=json
+WARNING:root:2022-07-11T20:14:35.244262-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:36.844183-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28The+Road+Goes+On+Forever+-+Robert+Earl+Keen%29+%28West+Textures%29&alt=json
+WARNING:root:2022-07-11T20:14:37.894632-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:39.575018-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Choctaw+Bingo+-+James+McMurtry%29+%28Saint+Mary+Of+The+Woods%29&alt=json
+WARNING:root:2022-07-11T20:14:40.626701-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:42.282308-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28The+Luckier+You+Get+-+American+Aquarium%29+%28Lamentations%29&alt=json
+WARNING:root:2022-07-11T20:14:43.340926-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:44.813413-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Gettin%27+Down+on+the+Mountain+-+Corb+Lund%29+%28Cabin+Fever%29&alt=json
+WARNING:root:2022-07-11T20:14:45.860473-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:47.329815-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:14:48.561157-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/3Xqwp229y11VgMbRvIkAY1?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28You+Know+You%27re+Right+-+Nirvana%29+%28Nirvana%29&alt=json
+WARNING:root:2022-07-11T20:14:49.833583-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:51.571486-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Only+One+-+Kanye+West+featuring+Paul+McCartney%29+%28Only+One%29&alt=json
+WARNING:root:2022-07-11T20:14:52.614404-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:54.134194-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Oblivion+-+Grimes%29+%28Visions%29&alt=json
+WARNING:root:2022-07-11T20:14:55.187127-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:14:56.566825-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:14:57.922537-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/1JXldWJ2lrH7MioYwwshud?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Regulate+-+Warren+G+featuring+Nate+Dogg%29+%28Regulate%E2%80%A6+G+Funk+Era%29&alt=json
+WARNING:root:2022-07-11T20:14:59.460952-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:00.991510-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28No+Diggity+-+Blackstreet+featuring+Dr.+Dre%29+%28Another+Level%29&alt=json
+WARNING:root:2022-07-11T20:15:02.027823-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:03.801475-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Rosa+Parks+-+Outkast%29+%28Aquemini%29&alt=json
+WARNING:root:2022-07-11T20:15:04.841776-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:06.257089-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Ghetto+Supastar+%28That+is+What+You+Are%29+%28feat.+Ol%27+Dirty+Bastard+%26+M%C3%BDa%29+-+Pras+featuring+Ol%27+Dirty+Bastard%29+%28Ghetto+Supastar%29&alt=json
+WARNING:root:2022-07-11T20:15:07.311256-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:08.725760-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28This+Is+How+We+Do+It+-+Montell+Jordan+featuring+Wino%29+%28This+Is+How+We+Do+It%29&alt=json
+WARNING:root:2022-07-11T20:15:09.774917-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:11.541295-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Return+of+the+Mack+-+Mark+Morrison%29+%28Return+of+the+Mack%29&alt=json
+WARNING:root:2022-07-11T20:15:12.591439-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:14.203789-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28The+Way+You+Move+%28feat.+Sleepy+Brown%29+-+Outkast+featuring+Sleepy+Brown%29+%28SpeakerboxxxThe+Love+Below%29&alt=json
+WARNING:root:2022-07-11T20:15:15.255089-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:16.702225-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Hypnotize+-+2014+Remaster+-+The+Notorious+B.I.G.%29+%28Life+After+Death+%282014+Remastered+Edition%29%29&alt=json
+WARNING:root:2022-07-11T20:15:17.744307-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:19.410021-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Creep+-+TLC%29+%28Crazysexycool%29&alt=json
+WARNING:root:2022-07-11T20:15:20.457995-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:21.987171-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28So+Fresh%2C+So+Clean+-+Outkast%29+%28Stankonia%29&alt=json
+WARNING:root:2022-07-11T20:15:23.062299-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:24.543263-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Doo+Wop+%28That+Thing%29+-+Edit+-+Ms.+Lauryn+Hill%29+%28Platinum+Hits+2000%29&alt=json
+WARNING:root:2022-07-11T20:15:25.580639-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:27.173939-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Fantasy+%28feat.+O.D.B.%29+-+Bad+Boy+Fantasy+-+Mariah+Carey+featuring+Ol%27+Dirty+Bastard%29+%28Fantasy+EP%29&alt=json
+WARNING:root:2022-07-11T20:15:28.215677-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:29.802393-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:15:31.030299-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/6pKSvsRHnmsU1AWddtrhwi?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Pancho+%26+Lefty+-+Live+-+Townes+Van+Zandt%29+%28Live+at+the+Old+Quarter%2C+Houston%2C+Texas%29&alt=json
+WARNING:root:2022-07-11T20:15:32.609882-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:34.088182-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28El+Paso+-+Marty+Robbins%29+%28Gunfighter+Ballads+And+Trail+Songs%29&alt=json
+WARNING:root:2022-07-11T20:15:35.144208-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:36.629865-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Cool+Water+-+Marty+Robbins%29+%28Gunfighter+Ballads+And+Trail+Songs%29&alt=json
+WARNING:root:2022-07-11T20:15:37.704435-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:39.187549-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Faleena+%28from+El+Paso%29+-+Marty+Robbins%29+%28The+Essential+Marty+Robbins+1951-1982%29&alt=json
+WARNING:root:2022-07-11T20:15:40.230198-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:41.633834-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Big+Iron+-+Marty+Robbins%29+%28Gunfighter+Ballads+And+Trail+Songs%29&alt=json
+WARNING:root:2022-07-11T20:15:42.676042-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:44.170422-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Big+Bad+John+-+Jimmy+Dean%29+%28The+Best+Of+Jimmy+Dean%29&alt=json
+WARNING:root:2022-07-11T20:15:45.220380-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:47.097124-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28%28Ghost%29+Riders+In+the+Sky+-+Johnny+Cash%29+%28The+Essential+Johnny+Cash%29&alt=json
+WARNING:root:2022-07-11T20:15:48.136880-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:49.800199-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Don%27t+Take+Your+Guns+to+Town+-+Johnny+Cash%29+%28The+Essential+Johnny+Cash%29&alt=json
+WARNING:root:2022-07-11T20:15:50.835707-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:52.484443-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Seven+Spanish+Angels+-+Willie+Nelson+featuring+Ray+Charles%29+%28The+Essential+Willie+Nelson%29&alt=json
+WARNING:root:2022-07-11T20:15:53.536651-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:55.006175-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Fancy+-+Bobbie+Gentry%29+%28Fancy%29&alt=json
+WARNING:root:2022-07-11T20:15:56.061246-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:15:57.583148-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Coward+Of+The+County+-+Kenny+Rogers%29+%28Daytime+Friends%3A+The+Very+Best+Of+Kenny+Rogers%29&alt=json
+WARNING:root:2022-07-11T20:15:58.639241-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:00.269092-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28The+Gambler+-+Kenny+Rogers%29+%28The+Gambler%29&alt=json
+WARNING:root:2022-07-11T20:16:01.313794-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:02.827247-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Wichita+Lineman+-+Remastered+2001+-+Glen+Campbell%29+%28Wichita+Lineman+%28Remastered%29%29&alt=json
+WARNING:root:2022-07-11T20:16:03.881624-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:05.346999-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Sunday+Morning+Coming+Down+-+Live+at+Ryman+Auditorium%2C+Nashville%2C+TN+-+July+1970+-+Johnny+Cash%29+%28The+Johnny+Cash+Show%29&alt=json
+WARNING:root:2022-07-11T20:16:06.400442-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:08.168300-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:16:09.369022-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/5dIgW8OgNmFbqf2nEIiBns?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:16:10.736771-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:12.261130-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28I%27m+On+A+Boat+-+The+Lonely+Island+featuring+T-Pain%29+%28Incredibad%29&alt=json
+WARNING:root:2022-07-11T20:16:13.293887-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:14.794082-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Boats+and+Hoes+-+Bankaji+featuring+Milky+Dubz%29+%28Boats+and+Hoes%29&alt=json
+WARNING:root:2022-07-11T20:16:15.826563-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:17.588375-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Boats+%27n+Hoes+-+Dvod%29+%28Acoustic+Mind+Fluke%29&alt=json
+WARNING:root:2022-07-11T20:16:18.618642-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:20.135355-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Rappin%27+for+Jesus+-+FarmerJohn%29+%28Hookers+and+Beer%29&alt=json
+WARNING:root:2022-07-11T20:16:21.166966-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:22.501614-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Hahaha+-+BOATS%29+%28Liens%29&alt=json
+WARNING:root:2022-07-11T20:16:23.537417-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:24.898366-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:16:26.083231-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/43bFWFVj3jKPpyNdF48tat?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:16:27.459751-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:29.468334-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Cigarettes+and+Coffee+-+Otis+Redding%29+%28The+Soul+Album%29&alt=json
+WARNING:root:2022-07-11T20:16:30.522839-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:32.290324-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28When+a+Man+Loves+a+Woman+-+Percy+Sledge%29+%28When+a+Man+Loves+a+Woman%29&alt=json
+WARNING:root:2022-07-11T20:16:33.322244-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:34.824275-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Stand+by+Me+-+Otis+Redding%29+%28Pain+in+My+Heart%29&alt=json
+WARNING:root:2022-07-11T20:16:35.856698-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:37.555778-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28People+Get+Ready+-+The+Impressions%29+%28People+Get+Ready%29&alt=json
+WARNING:root:2022-07-11T20:16:38.587402-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:40.015024-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Try+a+Little+Tenderness+-+2016+Remaster+-+Otis+Redding%29+%28Complete+%26+Unbelievable%3A+The+Otis+Redding+Dictionary+of+Soul+%2850th+Anniversary+Edition%29%29&alt=json
+WARNING:root:2022-07-11T20:16:41.048112-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:42.772655-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28A+Change+Is+Gonna+Come+-+Sam+Cooke%29+%28Ain%27t+That+Good+News%29&alt=json
+WARNING:root:2022-07-11T20:16:43.834473-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:45.405452-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28%28Sittin%27+On%29+the+Dock+of+the+Bay+-+Otis+Redding%29+%28The+Dock+of+the+Bay+%28Mono%29%29&alt=json
+WARNING:root:2022-07-11T20:16:46.437680-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:48.092947-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28I%27d+Rather+Go+Blind+-+Etta+James%29+%28Tell+Mama%29&alt=json
+WARNING:root:2022-07-11T20:16:49.125542-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:50.764584-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Ain%27t+No+Sunshine+-+Bill+Withers%29+%28Just+As+I+Am%29&alt=json
+WARNING:root:2022-07-11T20:16:51.797001-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:53.427835-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Lean+on+Me+-+Bill+Withers%29+%28Still+Bill%29&alt=json
+WARNING:root:2022-07-11T20:16:54.462863-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:55.885738-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Into+the+Mystic+-+2013+Remaster+-+Van+Morrison%29+%28Moondance%29&alt=json
+WARNING:root:2022-07-11T20:16:56.919199-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:16:58.438570-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Hard+to+Handle+-+Otis+Redding%29+%28Dock+of+the+Bay+Sessions%29&alt=json
+WARNING:root:2022-07-11T20:16:59.470798-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:17:00.929498-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Son+of+a+Preacher+Man+-+Aretha+Franklin%29+%28This+Girl%27s+in+Love+with+You%29&alt=json
+WARNING:root:2022-07-11T20:17:01.962692-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:17:03.725290-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28You+Are+The+Sunshine+Of+My+Life+-+Stevie+Wonder%29+%28Talking+Book%29&alt=json
+WARNING:root:2022-07-11T20:17:04.762126-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:17:06.355920-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28For+Once+In+My+Life+-+Stevie+Wonder%29+%28For+Once+In+My+Life%29&alt=json
+WARNING:root:2022-07-11T20:17:07.387609-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:17:09.014058-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:17:10.329647-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/3KWH8XoVHKcevBume3tpT4?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:17:11.568352-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:17:13.105910-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Spread+-+Outkast%29+%28SpeakerboxxxThe+Love+Below%29&alt=json
+WARNING:root:2022-07-11T20:17:14.151181-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:17:15.649832-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Pink+%26+Blue+-+Outkast%29+%28SpeakerboxxxThe+Love+Below%29&alt=json
+WARNING:root:2022-07-11T20:17:16.683770-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:17:18.319451-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28My+Favorite+Things+-+Outkast%29+%28SpeakerboxxxThe+Love+Below%29&alt=json
+WARNING:root:2022-07-11T20:17:19.354172-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:17:21.282565-05:001 seconds waited, no error, for execute
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28She+Lives+in+My+Lap+%28feat.+Rosario+Dawson%29+-+Outkast+featuring+Rosario+Dawson%29+%28SpeakerboxxxThe+Love+Below%29&alt=json
+WARNING:root:2022-07-11T20:17:22.316037-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:17:23.727188-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:17:25.005265-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/5mhN7B4KVELBIJ7v9q7EK5?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:17:26.485558-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:17:27.912398-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:17:29.084320-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/39OliJb9RKvvg0I51ZF5qL?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:17:30.670156-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:17:32.648225-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:17:33.846151-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/71tLpg4DbR2pyLSLJN9Rpw?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:17:35.192405-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:17:36.641980-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:17:37.821792-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/5cnWfF0P2d8Xi8BXFhYxif?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: GET https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=%28Amythyst+Kiah+-+Firewater+-+Radio+Bristol+Sessions+-+%29+%28%29&alt=json
+WARNING:root:2022-07-11T20:17:39.276729-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:17:40.729772-05:001 seconds waited, no error, for execute
+DEBUG:httpx._client:HTTP Request: POST https://accounts.spotify.com/api/token "HTTP/1.1 200 OK"
+WARNING:root:2022-07-11T20:17:41.933140-05:001 seconds waited, no error, for request_client_token
+DEBUG:httpx._client:HTTP Request: GET https://api.spotify.com/v1/playlists/5B7cAIw0h9ArTLhMGGOWAw?additional_types=episode%2Ctrack "HTTP/1.1 200 OK"
+DEBUG:googleapiclient.discovery:URL being requested: POST https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json
+WARNING:root:2022-07-11T20:17:43.152191-05:001 seconds waited, no error, for method
+WARNING:root:2022-07-11T20:17:46.238204-05:00 3 seconds waited, error, for execute, trying again in 2 seconds 
+Traceback (most recent call last):
+  File "/Users/joshwren/Code/playground/test/SpotifyToYouTubeSongPlaylist/http_requests.py", line 21, in handle_request
+    call = func(**kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 429 when requesting https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json returned "Resource has been exhausted (e.g. check quota).". Details: "[{'domain': 'youtube.api.v3.PlaylistInsertResponse.Error', 'reason': 'RATE_LIMIT_EXCEEDED'}]">
+WARNING:root:2022-07-11T20:17:52.335172-05:00 9 seconds waited, error, for execute, trying again in 4 seconds 
+Traceback (most recent call last):
+  File "/Users/joshwren/Code/playground/test/SpotifyToYouTubeSongPlaylist/http_requests.py", line 21, in handle_request
+    call = func(**kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 429 when requesting https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json returned "Resource has been exhausted (e.g. check quota).". Details: "[{'domain': 'youtube.api.v3.PlaylistInsertResponse.Error', 'reason': 'RATE_LIMIT_EXCEEDED'}]">
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/joshwren/Code/playground/test/SpotifyToYouTubeSongPlaylist/http_requests.py", line 21, in handle_request
+    call = func(**kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "/Users/joshwren/.pyenv/versions/spotify_dl_env/lib/python3.8/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 429 when requesting https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus&alt=json returned "Resource has been exhausted (e.g. check quota).". Details: "[{'domain': 'youtube.api.v3.PlaylistInsertResponse.Error', 'reason': 'RATE_LIMIT_EXCEEDED'}]">

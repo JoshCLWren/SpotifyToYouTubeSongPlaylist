@@ -22,6 +22,19 @@ def get_youtube_playlists_from_cache():
         return {"playlist_count": 0}
 
 
+def get_a_playlist_from_cache(_id):
+    """Gets a playlist from the cache"""
+    if not os.path.exists("youtube_playlists_v1.json"):
+        return None
+    try:
+        with open("youtube_playlists_v1.json") as f:
+            youtube_playlist_cache = json.load(f)
+            for playlist in youtube_playlist_cache:
+                return playlist if playlist["id"] == _id else None
+    except json.JSONDecodeError:
+        return None
+
+
 class YoutubePlaylists:
     """Class for all the users YouTube playlists"""
 
@@ -47,7 +60,11 @@ class YoutubePlaylists:
                 [value for _, value in youtube_playlists.items()][:-2],
                 [playlist for playlist in youtube_playlists][:-2],
             )
-        if not youtube_playlists or isinstance(youtube_playlists, dict) and youtube_playlists.get("playlist_count", 0) == 0:
+        if (
+            not youtube_playlists
+            or isinstance(youtube_playlists, dict)
+            and youtube_playlists.get("playlist_count", 0) == 0
+        ):
             youtube_playlists, _ids, _names = self._get_current_youtube(youtube_quota)
             return (
                 youtube_playlists,
@@ -96,7 +113,13 @@ class YoutubePlaylists:
             "created_at": arrow.now().isoformat(),
         }
         for name, _id in names, ids:
-            youtube_playlist_dict[name] = {"id": _id, "name": name, "tracks": [], "tracks_count": 0, "last_updated": arrow.now().isoformat()}
+            youtube_playlist_dict[name] = {
+                "id": _id,
+                "name": name,
+                "tracks": [],
+                "tracks_count": 0,
+                "last_updated": arrow.now().isoformat(),
+            }
             # save the playlist names and ids to a json file
             with open("youtube_playlists_v1.json", "w") as f:
                 json.dump(youtube_playlist_dict, f)
@@ -128,16 +151,41 @@ class YoutubePlaylists:
 
     def _handle_response(self, youtube_quota, response, name):
         youtube_quota.spend(1)
-        self.as_dict[name] = {"id": response["id"], "name": name, "tracks": [], "tracks_count": 0, "last_updated": arrow.now().isoformat()}
+        self.as_dict[name] = {
+            "id": response["id"],
+            "name": name,
+            "tracks": [],
+            "tracks_count": 0,
+            "last_updated": arrow.now().isoformat(),
+        }
         youtube_quota.log_success(response, self.as_dict[name])
         with open("youtube_playlists_v1.json", "r") as f:
             cache = json.load(f)
         if cache:
             cache["playlist_count"] += 1
-            cache[name] = {"id": response["id"], "name": name, "tracks": [], "tracks_count": 0, "last_updated": arrow.now().isoformat()}
+            cache[name] = {
+                "id": response["id"],
+                "name": name,
+                "tracks": [],
+                "tracks_count": 0,
+                "last_updated": arrow.now().isoformat(),
+            }
             with open("youtube_playlists_v1.json", "w") as f:
                 json.dump(cache, f)
         else:
             with open("youtube_playlists_v1.json", "w") as f:
-                json.dump({"last_modified": arrow.now().isoformat(), "playlist_count": 1, name: {"id": response["id"], "name": name, "tracks": [], "tracks_count": 0, "last_updated": arrow.now().isoformat()}}, f)
+                json.dump(
+                    {
+                        "last_modified": arrow.now().isoformat(),
+                        "playlist_count": 1,
+                        name: {
+                            "id": response["id"],
+                            "name": name,
+                            "tracks": [],
+                            "tracks_count": 0,
+                            "last_updated": arrow.now().isoformat(),
+                        },
+                    },
+                    f,
+                )
         return self.as_dict[name]

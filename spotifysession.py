@@ -47,10 +47,10 @@ class SpotifySession:
         return playlists_cache, spotify_playlist_ids
 
     @property
-    async def spotify_request(self):
+    def spotify_request(self):
         with open("client_codes_Spotify.json") as f:
             client_codes = json.load(f)
-        request = await handle_request(
+        request = handle_request(
             func=request_client_token,
             client_id=str(client_codes["client_id"]),
             client_secret=str(client_codes["client_secret"]),

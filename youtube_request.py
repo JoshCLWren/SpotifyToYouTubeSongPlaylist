@@ -2,6 +2,7 @@
 
 import json
 import os
+import pickle
 
 import aiofiles
 import arrow
@@ -26,7 +27,7 @@ class Quota:
         self.failed_requests = 0
         self.total_requests = self.successful_requests + self.failed_requests
 
-    async def spend(self, amount):
+    def spend(self, amount):
         """Uses the quota"""
         self.remaining -= amount
         return self.remaining
@@ -35,22 +36,22 @@ class Quota:
         """Gets the quota"""
         return self.remaining
 
-    async def reset(self):
+    def reset(self):
         """Resets the quota"""
         self.remaining = self.daily_quota
         return self.remaining
 
-    async def budget(self, amount):
+    def budget(self, amount):
         """Budget the quota"""
         return self.remaining >= amount
 
-    async def log_success(self, response, obj):
+    def log_success(self, response, obj):
         """Logs a successful request"""
 
         if not os.path.exists("quota_log.json"):
-            async with aiofiles.open("quota_log.json", "w") as f:
+            with open("quota_log.json", "w") as f:
                 json.dump({"data": []}, f)
-        async with aiofiles.open("quota_log.json", "r") as f:
+        with open("quota_log.json", "r") as f:
             cache = json.load(f)
 
         cache["data"].append(
@@ -65,7 +66,7 @@ class Quota:
             }
         )
 
-        async with aiofiles.open("./quota_log.json", "w") as f:
+        with open("./quota_log.json", "w") as f:
             json.dump(cache, f)
         self.successful_requests += 1
         self.total_requests += 1
@@ -108,26 +109,34 @@ class YouTubeAuthSession:
         self.api_service_name = "youtube"
         self.api_version = "v3"
         self.client_secrets_file = "client_secret_YouTube.json"
-        self.credentials = self.new()
+        self.credentials = self.get_creds()
         self.discovery = googleapiclient.discovery.build(
             "youtube", "v3", credentials=self.credentials
         )
 
-    def new(self):
+    def get_creds(self):
         """initialize and authenticate with Youtube"""
         # Get credentials and create an API client
         # check if the cache is recent enough to use
-
+        if os.path.exists("token.pickle"):
+            with open("token.pickle", "rb") as token:
+                creds = pickle.load(token)
+        if creds.valid and creds.expired is False:
+            return creds
         port = os.environ.get("PORT", 8080)
         flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
             self.client_secrets_file, self.scopes
         )
         try:
-            credentials = flow.run_local_server(port=port)
+            creds = flow.run_local_server(port=port)
         except OSError:
             port = int(port) + 1
             print(f"The server is still running, trying port {port}")
 
-            credentials = flow.run_local_server(port=port)
+            creds = flow.run_local_server(port=port)
+        # if there are credentials, save them to the token.pickle file
+        with open("token.pickle", "wb") as token:
 
-        return credentials
+            pickle.dump(creds, token)
+
+        return creds

@@ -13,14 +13,15 @@ import googleapiclient.errors
 from googleapiclient.errors import HttpError
 from tekore import Spotify, request_client_token, scope
 
+import youtube_playlist
 from http_requests import handle_request
 from song import Song
 
 
-async def _try_song_cache(tune):
+def _try_song_cache(tune):
     """Tries to get the song from the cache"""
     try:
-        async with aiofiles.open(
+        with open(
             f"song_cache/{tune['artist_name']}/{tune['track_name']}.json", "r"
         ) as f:
             return json.load(f)
@@ -40,93 +41,95 @@ class Playlist:
         spotify_playlists=None,
         quota=None,
     ):
+
         self.attempts = None
         self.spotify_id = spotify_id
         self.is_spotify_cached = False
-        self.tracks = self._try_playlist_cache(spotify_id, spotify_playlists) or []
+        self.tracks = []
         self.youtube_request = youtube_request
         self.youtube_id = None
-        self.spotify_playlist()
+        self.cache = None
         try:
-            self.youtube_playlist_id = (
-                self._try_youtube_cache() or self.create_youtube_playlist(quota)
-            )
+            self.playlist = spotify.playlist(playlist_id=self.spotify_id)
+            self.name = self.playlist.name
+            self.youtube_playlist_cache = bool(self._is_cached())
         except AttributeError:
-            self.youtube_playlist_id = None
+            self.playlist = None
+            self.name = None
+            self.youtube_playlist_cache = False
+        if not self.youtube_id:
+            self.create_youtube_playlist(quota)
         self.spotify = spotify
-        self.youtube_playlist_cache = bool(self._try_youtube_cache())
 
-    async def spotify_playlist(self):
-        self.playlist = Spotify.playlists(self.spotify_id)
-        self.name = self.playlist.name
-
-    async def _try_youtube_cache(self):
+    def _is_cached(self):
         """Tries to get the playlist from the cache"""
-        # import pdb; pdb.set_trace()
-        if os.path.exists("youtube_playlists_v1.json"):
-            async with aiofiles.open("youtube_playlists_v1.json", "r") as f:
-                cache = json.load(f)
-                for playlist, _id in cache.items():
-                    if playlist == await self.spotify_playlist.name:
-                        return _id
+        if os.path.exists(f"./playlist_cache/{self.name}.json"):
+            try:
+                with open(f"./playlist_cache/{self.name}.json") as f:
+                    self.cache = json.load(f)
+                    self.tracks = self.cache["tracks"]
+
+                    print(f"{self.name} is cached")
+                    self.youtube_id = self.cache["youtube_playlist_id"]
+            except KeyError:
+                print(f"{self.name} not in cache")
+                return None
+            except json.JSONDecodeError:
+                print("Not valid json")
+                return None
+        else:
+            print("No cache found")
+            return None
         return None
 
-    async def _try_playlist_cache(self, spotify_id, spotify_playlists):
-        """Tries to get the playlist from the cache"""
-        # import pdb; pdb.set_trace()
-        if spotify_playlists:
-            for _playlist in spotify_playlists["playlists"]:
-                if _playlist["id"] == spotify_id:
-                    self.is_spotify_cached = True
-                    return _playlist["tracks"]
-
-    async def place_songs_in_playlist(self, youtube_quota):
+    def place_songs_in_playlist(self, youtube_quota):
         """Places the songs in the playlist"""
         if youtube_quota.remaining == 0:
             print("Youtube quota exceeded")
             return
         print(f"Placing songs in {self.name}")
+        for index, tune in enumerate(self.tracks):
+            self.process_song(tune, youtube_quota, index)
 
-        await asyncio.gather(
-            *[self.process_song(tune, youtube_quota) for tune in self.tracks]
-        )
-
-    async def process_song(self, tune, youtube_quota):
+    def process_song(self, tune, youtube_quota, index):
         """Processes the song"""
         try:
             print(f"Placing {tune['track_name']} by {tune['artist_name']}")
         except TypeError:
             print(f"Failed to place song: {tune}")
             return
-        song = await self._handle_cache(tune, youtube_quota)
+        song = self._handle_cache(tune, youtube_quota)
         # checks if the song is already in the playlist
+        if song.playlist_id_youtube == self.youtube_id:
+            print(f"{song.full_name} already in playlist")
+            return
         if song.youtube_id:
-            self.tracks.append(song.youtube_id)
+            self._update_cache(self, song, index)
             budget_approval = youtube_quota.budget(1)
             if not budget_approval:
                 print("Youtube quota exceeded, can't add song to playlist")
                 return
             # check if song is already in the playlist
             if not self.is_song_in_youtube_playlist(tune):
-                await self._youtube_song(song, youtube_quota)
+                self._youtube_song(song, youtube_quota)
 
-    async def _handle_cache(self, tune, youtube_quota):
+    def _handle_cache(self, tune, youtube_quota):
         cached_song, song = self.song_lookup(tune, youtube_quota)
         if len(cached_song) == 1:
-            await song.cache_song()
+            song.cache_song()
             print(f"{tune['track_name']} by {tune['artist_name']} cached")
         else:
-            await song.update_song_cache()
+            song.update_song_cache()
             print(f"cache for {tune['track_name']} by {tune['artist_name']} updated")
         return song
 
-    async def _youtube_song(self, song, youtube_quota):
-        request = await handle_request(
+    def _youtube_song(self, song, youtube_quota):
+        request = handle_request(
             func=self.youtube_request.discovery.playlistItems().insert,
             part="snippet",
             body={
                 "snippet": {
-                    "playlistId": self.youtube_playlist_id,
+                    "playlistId": self.youtube_id,
                     "position": 0,  # insert at the top?
                     "resourceId": {
                         "kind": "youtube#video",
@@ -136,9 +139,9 @@ class Playlist:
             },
         )
         try:
-            if response := await handle_request(func=request.execute):
+            if response := handle_request(func=request.execute):
                 youtube_quota.spend(1)
-                await youtube_quota.log_success(response, self.name)
+                youtube_quota.log_success(response, self.name)
 
         except googleapiclient.errors.HttpError as e:
             print(e)
@@ -148,8 +151,8 @@ class Playlist:
                     f"{song.full_name} failed to add to playlist. The song has been skipped"
                 )
 
-    async def song_lookup(self, tune, youtube_quota):
-        cached_song = await _try_song_cache(tune) or {"video_id": None}
+    def song_lookup(self, tune, youtube_quota):
+        cached_song = _try_song_cache(tune) or {"video_id": None}
         song = Song(
             spotify_playlist_id=self.spotify_id,
             playlist_id_youtube=self.youtube_id,
@@ -159,13 +162,11 @@ class Playlist:
             youtube_request=self.youtube_request,
         )
         song.youtube_id = (
-            cached_song.get("video_id")
-            or await song.get_song_youtube(youtube_quota)
-            or None
+            cached_song.get("video_id") or song.get_song_youtube(youtube_quota) or None
         )
         return cached_song, song
 
-    async def cache_playlist(self):
+    def cache_playlist(self):
         """Caches the playlist"""
         playlist_to_cache = {
             "name": name,
@@ -179,24 +180,24 @@ class Playlist:
 
         else:
             # read cache and check if song is already in cache
-            async with aiofiles.open(f"./playlist_cache/{self.name}", "r") as f:
+            with open(f"./playlist_cache/{self.name}", "r") as f:
                 cache = json.load(f)
                 if cache["youtube_playlist_id"] == self.youtube_playlist_id:
                     print(f"{self.name} is already in cache")
                     return cache
 
-        async with aiofiles.open(f"./playlist_cache/{self.name}", "w") as f:
+        with open(f"./playlist_cache/{self.name}", "w") as f:
 
             json.dump(playlist_to_cache, f)
             self.is_spotify_cached = True
             print(f"{self.name} cached")
             return playlist_to_cache
 
-    async def create_youtube_playlist(self, quota):
+    def create_youtube_playlist(self, quota):
         """Creates a new playlist in youtube"""
         playlist = None
         if quota.remaining > 0:
-            request = await handle_request(
+            request = handle_request(
                 func=self.youtube_request.discovery.playlists().insert,
                 part="snippet,status",
                 body={
@@ -211,49 +212,44 @@ class Playlist:
             if not budget_approval:
                 print("Youtube quota exceeded, can't create playlist")
                 return
-            if playlist_request := await handle_request(func=request.execute):
+            if playlist_request := handle_request(func=request.execute):
                 playlist = self._spend_quota(quota, playlist_request)
         else:
             print("Youtube quota exceeded, can't create playlist")
             return
         try:
             self.youtube_id = playlist["id"]
-            await self._update_youtube_cache()
+            self._update_cache()
             print(f"{self.name} created in youtube")
             return playlist["id"]
         except TypeError:
-            return await self._log_failed_playlist()
+            return self._log_failed_playlist()
 
-    async def _spend_quota(self, quota, playlist):
+    def _spend_quota(self, quota, playlist):
         quota.spend(1)
-        await quota.log_success(playlist, self.name)
+        quota.log_success(playlist, self.name)
         self.youtube_playlist_id = playlist["id"]
         self.youtube_playlist_cache = True
         print(f"{self.name} created")
         return playlist
 
-    async def _log_failed_playlist(self):
+    def _log_failed_playlist(self):
         print(f"{self.name} failed to create playlist. The playlist has been skipped")
 
         return None
 
-    async def _update_youtube_cache(self):
+    def _update_cache(self, song, index):
         """Updates the cache with the new playlist"""
-        if not os.path.exists("youtube_playlists_v1.json"):
-            async with aiofiles.open("youtube_playlists_v1.json", "w") as f:
-                json.dump({}, f)
-        async with aiofiles.open("youtube_playlists_v1.json", "r") as f:
-            cache = json.load(f)
-            cache[f"{self.name}"]["youtube_playlist_id"] = self.youtube_id
-            cache[f"{self.name}"]["last_updated"] = arrow.now().isoformat()
+        self.tracks[index]["youtube_id"] = song.youtube_id
 
-        async with aiofiles.open("youtube_playlists_v1.json", "w") as f:
-            json.dump(cache, f)
+        with open(f"./playlist_cache/{self.name}", "w") as f:
+            json.dump(self.tracks, f)
+            print(f"{self.name} cache updated")
 
-    async def is_song_in_youtube_playlist(self, tune):
+    def is_song_in_youtube_playlist(self, tune):
         """Checks if the song is already in the playlist if"""
         if self.youtube_playlist_cache:
-            async with aiofiles.open("youtube_playlists_v1.json", "r") as f:
+            with open("youtube_playlists_v1.json", "r") as f:
                 cache = json.load(f)
                 for song in cache["playlists"][f"{self.name}"]["tracks"]:
                     if (

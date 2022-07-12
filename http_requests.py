@@ -13,7 +13,7 @@ logging.basicConfig(
 )
 
 
-async def handle_request(func, time_to_wait=1, time_waited=0, **kwargs):
+def handle_request(func, time_to_wait=1, time_waited=0, **kwargs):
     """Handles outside requests and waits if there's an error"""
     time_waited = time_waited + time_to_wait
     try:

@@ -114,9 +114,6 @@ def correct_and_find_song_ids():
                 if song_cache.get("video_id") or "None" not in song_cache.get(
                     "youtube_url"
                 ):
-                    import pdb
-
-                    pdb.set_trace()
                     songs_with_new_ids.append(song_cache)
 
     with open("combined_playlists_cache.json", "r") as f:
